@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-export default App = () => (
+const App = () => {
+    return (
     <div>
         <h1>Slack Clone</h1>
-    </div>
-)
+    </div>)
+}
+
+export default App;
