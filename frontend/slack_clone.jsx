@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import * as SessionUtil from './util/session_api_util';
+import Root from './components/Root';
 
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById('root');
@@ -11,5 +12,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.logout = SessionUtil.logout;
     //Testing
 
-    ReactDOM.render(<h1>Welcome to Slack</h1>, root)
+    ReactDOM.render(<Root store={store}/>, root)
 });
