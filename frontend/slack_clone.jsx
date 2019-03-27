@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.signup = SessionUtil.signup;
     // window.login = SessionUtil.login;
     // window.logout = SessionUtil.logout;
+    window.getState = store.getState;
     //Testing
 
     ReactDOM.render(<Root store={store}/>, root)

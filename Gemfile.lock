@@ -50,7 +50,7 @@ GEM
     archive-zip (0.12.0)
       io-like (~> 0.3.0)
     arel (9.0.0)
-    bcrypt (3.1.12)
+    bcrypt (3.1.12-x64-mingw32)
     better_errors (2.5.1)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -58,7 +58,7 @@ GEM
     bindex (0.5.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootsnap (1.4.1)
+    bootsnap (1.4.2)
       msgpack (~> 1.0)
     builder (3.2.3)
     byebug (11.0.1)
@@ -88,7 +88,7 @@ GEM
     debug_inspector (0.0.3)
     erubi (1.8.0)
     execjs (2.7.0)
-    ffi (1.10.0)
+    ffi (1.10.0-x64-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.6.0)
@@ -117,12 +117,12 @@ GEM
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
     minitest (5.11.3)
-    msgpack (1.2.9)
+    msgpack (1.2.9-x64-mingw32)
     multi_json (1.13.1)
     nio4r (2.3.1)
-    nokogiri (1.10.2)
+    nokogiri (1.10.2-x64-mingw32)
       mini_portile2 (~> 2.4.0)
-    pg (1.1.4)
+    pg (1.1.4-x64-mingw32)
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -195,6 +195,8 @@ GEM
     tilt (2.0.9)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2019.1)
+      tzinfo (>= 1.0.0)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     web-console (3.7.0)
@@ -209,7 +211,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
+  x64-mingw32
 
 DEPENDENCIES
   annotate
@@ -240,4 +242,4 @@ RUBY VERSION
    ruby 2.5.1p57
 
 BUNDLED WITH
-   1.17.1
+   2.0.1

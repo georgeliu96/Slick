@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SessionForm extends React.component {
+class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,7 @@ class SessionForm extends React.component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.processForm(this.state);
+        this.props.action(this.state);
     }
 
     handleInput(field) {
@@ -27,15 +27,16 @@ class SessionForm extends React.component {
     render() {
         return (
             <form onSubmit={this.handleSubmit}>
-                <label>Username:
+                <label className="form username">Username:
                     <input type="text" onChange={this.handleInput("username")} />
                 </label>
-                <label>Password:
+                <label className="form password">Password:
                     <input type="password" onChange={this.handleInput("password")} />
                 </label>
-                <label>Email:
+                <label className="form email">Email:
                     <input type="text" onChange={this.handleInput("email")} />
                 </label>
+                <input type="submit" value={this.props.formType}/>
             </form>
         )
     }
