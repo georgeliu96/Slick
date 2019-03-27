@@ -9,7 +9,7 @@ const App = () => {
     <div>
         <header>
             <h1>Slack Clone</h1>
-            <SessionButtonsContainer/>
+            <Route exact path="/" component={SessionButtonsContainer}/>
         </header>
         <Route path="/signin" component={LoginFormContainer} />
         <Route path="/get-started" component={SignupFormContainer} />

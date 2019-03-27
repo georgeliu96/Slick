@@ -4,7 +4,9 @@ import SessionForm from './session_form';
 
 const msp = (state, ownProps) => ({
     errors: state.errors,
-    formType: "Sign Up!"
+    formType: "Sign Up!",
+    link: "/signin",
+    link_text: "Sign In"
 });
 
 const mdp = dispatch => ({
