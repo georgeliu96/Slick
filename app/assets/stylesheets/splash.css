@@ -18,6 +18,8 @@
     grid-column: 2/span 4;
     grid-row: 1/span 2;
     position: relative;
+    color: black;
+    z-index: 100000;
 }
 
 
@@ -50,7 +52,7 @@
 }
 .splash-started {
     padding: 19px 40px 20px;
-    font-weight: 700;
+    font-weight: 425;
     line-height: 1.28571429;
     border-radius: 4px;
     font-size: .875rem;
@@ -58,4 +60,18 @@
     color: white;
     box-shadow: none;
     border: none;
+    letter-spacing: 1px;
+}
+
+.splash-started:hover {
+    background-color: #3d1242;
+    cursor: pointer;
+}
+
+.splash-signin {
+    font-size: 90%;
+}
+
+.splash-link {
+    color: #1264a3;
 }

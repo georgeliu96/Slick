@@ -1,5 +1,6 @@
 * {
     font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+        color: #656464;
 }
 
 .session-nav {
@@ -9,10 +10,16 @@
     justify-content: space-between;
     height: 70px;
     align-items: center;
-    color: #454545;
+    color: #656464;
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
+
+.session-nav :hover{
+    color: black;
+    cursor: pointer;
+}
+
 
 .logo-pic {
     height: 25px;
@@ -21,17 +28,27 @@
 .signin-button {
     margin-left: 40%;
     text-decoration: none;
-    color: black;
+    color: #656464;
+}
+
+.signin-button:hover{
+    color: #84528a;
 }
 
 .getstarted-button {
     text-decoration: none;
     color: white;
     background-color: #611f69;
-    font-weight: 700;
+    font-weight: 425;
     padding: .75rem 1rem;
     border-radius: 4px;
     font-size: .875rem;
+    letter-spacing: 1px;
+}
+
+.getstarted-button:hover {
+    color: white;
+    background-color: #410b48;
 }
 
 
@@ -45,9 +62,4 @@
     color: black;
     font-weight: 600;
     font-size: 25px;
-}
-
-.session-buttons {
-    display: flex;
-    clear: both;
 }
