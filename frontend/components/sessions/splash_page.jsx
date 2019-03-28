@@ -15,7 +15,6 @@ class SplashPage extends React.Component {
     handleSubmit(e){
         e.preventDefault();
         this.setState({submitted: true});
-        debugger 
         this.props.history.push(
             {
                 pathname: '/get-started',

@@ -20,18 +20,21 @@ export const receiveErrors = errors => ({
 
 export const login = user => dispatch => (
     SessionUtil.login(user).then(user => (
-        dispatch(receiveCurrentUser(user))
+        dispatch(receiveCurrentUser(user))),
+        errors => dispatch(receiveErrors(errors)
     ))
 );
 
 export const logout = () => dispatch => (
     SessionUtil.logout().then(() => (
-        dispatch(logoutCurrentUser)
-    ))
+        dispatch(logoutCurrentUser())),
+        errors => dispatch(receiveErrors(errors))
+    )
 );
 
 export const signup = user => dispatch => (
     SessionUtil.signup(user).then(user => (
-        dispatch(receiveCurrentUser(user))
-    ))
+        dispatch(receiveCurrentUser(user))),
+        errors =>  dispatch(receiveErrors(errors))
+    )
 );
