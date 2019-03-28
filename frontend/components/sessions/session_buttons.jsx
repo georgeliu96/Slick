@@ -8,8 +8,8 @@ const SessionButtons = (props) => {
         </button>
     ) : (
         <>
-        <Link to="/signin">Sign In</Link>
-        <Link to="/get-started">GET STARTED</Link>
+        <Link to="/signin" className="signin-button">Sign In</Link>
+        <Link to="/get-started" className="getstarted-button">GET STARTED</Link>
         </>
     )
 };

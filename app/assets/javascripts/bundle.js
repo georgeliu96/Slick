@@ -312,9 +312,10 @@ var NavBar = function NavBar(props) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/",
     className: "logo"
-  }, "Slack Clone")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Why Slack?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Solutions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Resources"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Pricing")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: "session-buttons"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_buttons_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    className: "logo-pic",
+    src: window.logo
+  }), "Slack Clone")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Why Slack?"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Solutions"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Resources"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Pricing"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_session_buttons_container__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NavBar);
@@ -338,9 +339,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var SessionButtons = function SessionButtons(props) {
   return props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, "Your Workspaces") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/signin"
+    to: "/signin",
+    className: "signin-button"
   }, "Sign In"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/get-started"
+    to: "/get-started",
+    className: "getstarted-button"
   }, "GET STARTED"));
 };
 
