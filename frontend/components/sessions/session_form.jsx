@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
 
     demoUser(e) {
         e.preventDefault();
-        this.props.action({username: "Demo", password: "password", email: "demo@email.com"})
+        this.props.demoLogin({username: "Demo", password: "password", email: "demo@email.com"})
             .then(()=>{
                 this.props.history.push('/coming-soon');
                 window.location.reload();
