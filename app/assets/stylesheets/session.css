@@ -1,0 +1,21 @@
+.session-nav {
+    list-style: none;
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+}
+
+.session-nav > li {
+    
+}
+
+.logo {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.session-buttons {
+    display: flex;
+}

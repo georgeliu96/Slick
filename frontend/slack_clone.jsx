@@ -10,9 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.currentUser) {
         const preloadedState = {
             session: { id: window.currentUser.id },
-            entities: {
-                users: { [window.currentUser.id]: window.currentUser }
-            }
+            // TODO: add back in when entities reducer is setup
+            // entities: {
+            //     users: { [window.currentUser.id]: window.currentUser }
+            // }
         };
         store = configureStore(preloadedState);
         delete window.currentUser;
