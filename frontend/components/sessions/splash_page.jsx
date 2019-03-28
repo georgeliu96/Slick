@@ -41,8 +41,8 @@ class SplashPage extends React.Component {
                     Slack is a collaboration hub for work, no matter what work you do. It’s a place where conversations happen, decisions are made, and information is always at your fingertips. With Slack, your team is better connected.
                 </div>
                 <form className="splash-form" onSubmit={this.handleSubmit}>
-                    <input type="text" placeholder="Email Address" onChange={this.handleInput("email")}/> 
-                    <input type="submit" value="GET STARTED"/>
+                    <input type="text" className="splash-email" placeholder="Email address" onChange={this.handleInput("email")}/> 
+                    <input type="submit" className="splash-started" value="GET STARTED"/>
                 </form>
             </div>
     );}

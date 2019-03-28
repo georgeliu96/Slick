@@ -627,10 +627,12 @@ function (_React$Component) {
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "Email Address",
+        className: "splash-email",
+        placeholder: "Email address",
         onChange: this.handleInput("email")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
+        className: "splash-started",
         value: "GET STARTED"
       })));
     }

@@ -5,13 +5,13 @@
 .session-nav {
     list-style: none;
     display: flex;
-    width: 90%;
-    margin: 0 auto;
+    max-width: 1230px;
     justify-content: space-between;
-    margin-left: 0px;
     height: 70px;
     align-items: center;
     color: #454545;
+    margin: 0 auto;
+    font-size: 1rem;
 }
 
 .logo-pic {

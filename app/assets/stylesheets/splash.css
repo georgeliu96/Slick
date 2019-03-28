@@ -28,3 +28,34 @@
     block-size: inherit;
     line-height: 1.44444444;
 }
+
+.splash-form {
+    grid-column: 5/span 2;
+    grid-row: 4;
+    align-self: end;
+    margin-bottom: 2rem;
+}
+
+.splash-email {
+    margin-right: 1rem;    
+    border: 1px solid #696969;
+    border-radius: 4px;
+    font-size: 16px; 
+    padding: 1.15rem 1rem;
+}
+
+.splash-email:focus {
+    outline: 0;
+    border: #611f69 solid 1px;
+}
+.splash-started {
+    padding: 19px 40px 20px;
+    font-weight: 700;
+    line-height: 1.28571429;
+    border-radius: 4px;
+    font-size: .875rem;
+    background-color: #611f69;
+    color: white;
+    box-shadow: none;
+    border: none;
+}
