@@ -63,3 +63,25 @@
     font-weight: 600;
     font-size: 25px;
 }
+
+.workspaces-link{
+    margin-left: 40%;
+}
+
+.workspaces-button {
+    font-size: 1rem;
+    box-shadow: none;
+    border: 2px solid #611f69;
+    color: #fff;
+    background: #611f69;
+    border-radius: 4px;
+    text-align: center; 
+    letter-spacing: 1px;
+    padding: .75rem 1rem;
+    font-weight: 200;
+}
+
+.workspaces-button:hover{
+    color: white;
+    background-color: #410b48;
+}

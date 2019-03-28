@@ -14,7 +14,7 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         //TODO redirect to a specific message channel for the logged-in user
-        this.props.action(this.state).then(()=>this.props.history.push(`/messages`));
+        this.props.action(this.state).then(()=>this.props.history.push(`/coming-soon`));
     }
 
     handleInput(field) {
