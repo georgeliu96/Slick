@@ -1,0 +1,53 @@
+* {
+    font-family: "Helvetica Neue",Helvetica,"Segoe UI",Tahoma,Arial,sans-serif;
+}
+
+.session-nav {
+    list-style: none;
+    display: flex;
+    max-width: 1230px;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    color: #454545;
+    margin: 0 auto;
+    font-size: 1rem;
+}
+
+.logo-pic {
+    height: 25px;
+}
+
+.signin-button {
+    margin-left: 40%;
+    text-decoration: none;
+    color: black;
+}
+
+.getstarted-button {
+    text-decoration: none;
+    color: white;
+    background-color: #611f69;
+    font-weight: 700;
+    padding: .75rem 1rem;
+    border-radius: 4px;
+    font-size: .875rem;
+}
+
+
+.logo {
+    width: 150px;
+    text-transform: lowercase;
+}
+
+.logo {
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.session-buttons {
+    display: flex;
+    clear: both;
+}

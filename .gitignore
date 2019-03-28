@@ -20,6 +20,8 @@
 /node_modules
 /yarn-error.log
 
+/config/database.yml
+
 /public/assets
 .byebug_history
 

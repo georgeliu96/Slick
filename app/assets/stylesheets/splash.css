@@ -1,0 +1,61 @@
+.splash-div {
+    grid-template-columns: 9.907407407% 13.333333333% 33.148148148% 22px 29.259259259% 12.314814815%;
+    grid-template-rows: 100px 69px minmax(auto,125px) auto 286px 30px;
+    display: grid;
+    padding-top: 58px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.splash-desc{
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.8px;
+    font-size: 62px;
+    margin-left: 5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    grid-column: 2/span 4;
+    grid-row: 1/span 2;
+    position: relative;
+}
+
+
+.app-desc {
+    display: inline-block;
+    grid-column: 5/span 4;
+    grid-row: 3;
+    block-size: inherit;
+    line-height: 1.44444444;
+}
+
+.splash-form {
+    grid-column: 5/span 2;
+    grid-row: 4;
+    align-self: end;
+    margin-bottom: 2rem;
+}
+
+.splash-email {
+    margin-right: 1rem;    
+    border: 1px solid #696969;
+    border-radius: 4px;
+    font-size: 16px; 
+    padding: 1.15rem 1rem;
+}
+
+.splash-email:focus {
+    outline: 0;
+    border: #611f69 solid 1px;
+}
+.splash-started {
+    padding: 19px 40px 20px;
+    font-weight: 700;
+    line-height: 1.28571429;
+    border-radius: 4px;
+    font-size: .875rem;
+    background-color: #611f69;
+    color: white;
+    box-shadow: none;
+    border: none;
+}
