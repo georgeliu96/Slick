@@ -16,15 +16,22 @@ class SessionForm extends React.Component {
         e.preventDefault();
         const that = this;
         //TODO redirect to a specific message channel for the logged-in user
-        this.props.action(this.state).then(()=>this.props.history.push(`/coming-soon`), ()=>
+        this.props.action(this.state).then(()=>{
+            this.props.history.push(`/coming-soon`)
+            window.location.reload();
+        }, ()=>
         {
-            that.setState({failed: true})}
+            that.setState({failed: true});}
         );
     }
 
     demoUser(e) {
         e.preventDefault();
-        this.props.action({username: "Demo", password: "password", email: "demo@email.com"}).then(()=>this.props.history.push('/coming-soon'));
+        this.props.action({username: "Demo", password: "password", email: "demo@email.com"})
+            .then(()=>{
+                this.props.history.push('/coming-soon');
+                window.location.reload();
+            });
     }
 
     handleInput(field) {
@@ -36,7 +43,6 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        // debugger 
         if (this.props.location.state && this.state.first_render) {
             this.setState({email: this.props.location.state.email, first_render: false});
         }
