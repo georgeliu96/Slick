@@ -616,9 +616,11 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-div"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "splash-desc"
-      }, "Imagine what you'll accomplish together"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Imagine what you'll accomplish together"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "app-desc"
       }, "Slack is a collaboration hub for work, no matter what work you do. It\u2019s a place where conversations happen, decisions are made, and information is always at your fingertips. With Slack, your team is better connected."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "splash-form",

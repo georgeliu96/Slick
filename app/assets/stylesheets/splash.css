@@ -1,0 +1,30 @@
+.splash-div {
+    grid-template-columns: 9.907407407% 13.333333333% 33.148148148% 22px 29.259259259% 12.314814815%;
+    grid-template-rows: 100px 69px minmax(auto,125px) auto 286px 30px;
+    display: grid;
+    padding-top: 58px;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.splash-desc{
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.8px;
+    font-size: 62px;
+    margin-left: 5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    grid-column: 2/span 4;
+    grid-row: 1/span 2;
+    position: relative;
+}
+
+
+.app-desc {
+    display: inline-block;
+    grid-column: 5/span 4;
+    grid-row: 3;
+    block-size: inherit;
+    line-height: 1.44444444;
+}
