@@ -432,9 +432,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SessionForm).call(this, props));
     _this.state = {
-      username: "",
-      password: "",
-      email: ""
+      email: "",
+      first_render: true
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -443,25 +442,31 @@ function (_React$Component) {
   _createClass(SessionForm, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      e.preventDefault();
-      this.props.action(this.state);
+      var _this2 = this;
+
+      e.preventDefault(); //TODO redirect to a specific message channel for the logged-in user
+
+      this.props.action(this.state).then(function () {
+        return _this2.props.history.push("/messages");
+      });
     }
   }, {
     key: "handleInput",
     value: function handleInput(field) {
-      var _this2 = this;
+      var _this3 = this;
 
       return function (e) {
-        _this2.setState(_defineProperty({}, field, e.target.value));
+        _this3.setState(_defineProperty({}, field, e.target.value));
       };
     }
   }, {
     key: "render",
     value: function render() {
-      var email_value = "";
-
-      if (this.props.location.state) {
-        email_value = this.props.location.state.email;
+      if (this.props.location.state && this.state.first_render) {
+        this.setState({
+          email: this.props.location.state.email,
+          first_render: false
+        });
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -485,7 +490,7 @@ function (_React$Component) {
       }, "Email:", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         onChange: this.handleInput("email"),
-        value: email_value
+        value: this.state.email
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         value: this.props.formType
@@ -529,7 +534,8 @@ var mdp = function mdp(dispatch) {
   return {
     action: function action(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["signup"])(user));
-    }
+    } //TODO: 
+
   };
 };
 
@@ -548,6 +554,7 @@ var mdp = function mdp(dispatch) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -567,6 +574,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -614,6 +622,38 @@ function (_React$Component) {
       };
     }
   }, {
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.interval = setInterval(this.changePics, 4000);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.interval);
+    }
+  }, {
+    key: "changePics",
+    value: function changePics() {
+      var pics = document.getElementsByClassName("splash-pic");
+      var classNames = ["pic1", "pic2", "pic3"];
+
+      var _loop = function _loop(i) {
+        var curr = pics[i].className.split(" ")[1];
+        var next = classNames[(classNames.indexOf(curr) + 1) % 3];
+        pics[i].className += " outgoing";
+        setTimeout(function () {
+          pics[i].className = "splash-pic ".concat(next, " ingoing");
+          setTimeout(function () {
+            pics[i].className = pics[i].className.split(" ").slice(0, 2).join(" ");
+          }, 500);
+        }, 500);
+      };
+
+      for (var i = 0; i < pics.length; i++) {
+        _loop(i);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -629,12 +669,27 @@ function (_React$Component) {
         type: "text",
         className: "splash-email",
         placeholder: "Email address",
+        required: true,
         onChange: this.handleInput("email")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "submit",
         className: "splash-started",
         value: "GET STARTED"
-      })));
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "splash-signin"
+      }, "Already using Slack? ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/signin",
+        className: "splash-link"
+      }, "Sign in."))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://a.slack-edge.com/7a156/marketing/img/home/hero/Slack-Customer-Away.jpg",
+        className: "splash-pic pic1"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://a.slack-edge.com/7a156/marketing/img/home/hero/Slack-Customer-Autodesk.jpg",
+        className: "splash-pic pic2"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://a.slack-edge.com/7a156/marketing/img/home/hero/Slack-Customer-Molly-Moon-Ice-Cream.jpg",
+        className: "splash-pic pic3"
+      }));
     }
   }]);
 

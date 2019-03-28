@@ -5,16 +5,16 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            username: "",
-            password: "",
             email: "",
+            first_render: true 
         };
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state);
+        //TODO redirect to a specific message channel for the logged-in user
+        this.props.action(this.state).then(()=>this.props.history.push(`/messages`));
     }
 
     handleInput(field) {
@@ -26,9 +26,8 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        let email_value = ""
-        if (this.props.location.state) {
-            email_value = this.props.location.state.email
+        if (this.props.location.state && this.state.first_render) {
+            this.setState({email: this.props.location.state.email, first_render: false});
         }
         return (
             <>
@@ -43,7 +42,7 @@ class SessionForm extends React.Component {
                 </label>
                 <br></br>
                 <label className="form email">Email:
-                    <input type="text" onChange={this.handleInput("email")} value={email_value} />
+                    <input type="text" onChange={this.handleInput("email")} value={this.state.email} />
                 </label>
                 <br></br>
                 <input type="submit" value={this.props.formType}/>
