@@ -6,6 +6,8 @@ import SignupFormContainer from './sessions/signup_form_container';
 import MessagesNav from './messages/messages_nav';
 import NavBar from './sessions/nav_bar';
 import { Route, Switch } from 'react-router-dom';
+import ComingSoon from './coming_soon';
+import {AuthRoute} from '../util/route_util';
 
 const App = () => {
     return (
@@ -17,8 +19,9 @@ const App = () => {
             </Switch>
         </header>
         <Route exact path="/" component={SplashPageContainer}/>
-        <Route path="/signin" component={LoginFormContainer} />
-        <Route path="/get-started" component={SignupFormContainer} />
+        <AuthRoute path="/signin" component={LoginFormContainer} />
+        <AuthRoute path="/get-started" component={SignupFormContainer} />
+        <Route path="/coming-soon" component={ComingSoon} />
     </div>)
 }
 

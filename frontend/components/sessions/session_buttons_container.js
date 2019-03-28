@@ -3,7 +3,7 @@ import Session from './session_buttons';
 import { logout } from '../../actions/session_actions';
 
 const msp = state => ({
-    currentUser: window.currentUser 
+    currentUser: state.session.id 
 });
 
 const mdp = dispatch => ({
