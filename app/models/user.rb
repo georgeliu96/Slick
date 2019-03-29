@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint(8)        not null, primary key
+#  username        :string           not null
+#  user_image_url  :string           not null
+#  email           :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 class User < ApplicationRecord 
 
     validates :username, :user_image_url, :email, :password_digest, :session_token, presence: true 
@@ -6,6 +20,8 @@ class User < ApplicationRecord
 
     after_initialize :ensure_session_token, :ensure_image
     attr_reader :password 
+
+    has_many :messages 
 
     def password=(password)
         @password = password 
