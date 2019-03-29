@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const SessionButtons = (props) => {
     return props.currentUser ? (
         <>
-        <Link to="/coming-soon" className="workspaces-link"><button className="workspaces-button">
+        <Link to="/messages" className="workspaces-link"><button className="workspaces-button">
             Your Workspaces 
         </button></Link>
         <button onClick={props.logout}>Logout</button>

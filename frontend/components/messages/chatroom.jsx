@@ -1,49 +1,81 @@
 import React from 'react';
 import MessageForm from './message_form';
+import { connect } from 'react-redux';
+import { fetchUsers } from '../../actions/user_actions';
 
 class ChatRoom extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { messages: [] };
-        this.bottom = React.createRef();
+        this.state = { messages: [], users: [] };
+        // this.bottom = React.createRef();
     }
 
+    
+    
     componentDidMount() {
+        this.props.fetchUsers();
         App.cable.subscriptions.create({
             channel: "ChatChannel"
         }, {
             received: data => {
-                this.setState({
-                    messages: this.state.messages.concat(data.message)
-                });
+                switch (data.type) {
+                    case "message": {
+                        this.setState({
+                            messages: this.state.messages.concat(data.message[0]),
+                            users: this.state.users.concat(data.message[1])
+                        });
+                        break;
+                    }
+                    case "messages": {
+                        this.setState({messages: data.messages[0], users: data.messages[1]});
+                        break;
+                    }
+                }
             },
-            speak: function(data) {
-                return this.perform("speak", data);
-            }
-        }
-        );
+            speak: function(data) {return this.perform("speak", data);},
+            load: function() {return this.perform("load");}
+        });
     }
+
+    // loadChat(e) {
+    //     e.preventDefault();
+    //     App.cable.subscriptions.subscriptions[0].load();        
+    // }
      
+    // componentDidUpdate() {
+    //     // debugger 
+    //     this.bottom.current.scrollIntoView();
+    // }
+
     componentDidUpdate() {
-        this.bottom.current.scrollIntoView();
+        document.getElementById('bottom').scrollIntoView();
     }
 
     render() {
-        const messageList = this.state.messages.map(message => (
-            <li key={message.id}>
-                {message}
-                <div ref={this.bottom} />
+    
+        const messageList = this.state.messages.map((message, index) => (
+            <li key={index}>
+                <label className="chat-user">{this.props.users[this.state.users[index]] ? this.props.users[this.state.users[index]].username : ""}</label>    
+                <br></br>{message}
             </li>
         ))
         return (
             <div className="chatroom-container">
-                <div>Chatroom</div>
+                <div>Slack Channel</div>
                 <ul className="message-list">{messageList}</ul>
-                <MessageForm cable={App.cable}/>
+                <div id='bottom' />
+                <MessageForm/>
             </div>
         )
     }
 }
 
+const msp = state => ({
+    users: state.entities.users
+});
 
-export default ChatRoom;
+const mdp = dispatch => ({
+    fetchUsers: () => dispatch(fetchUsers())
+})
+
+export default connect(msp, mdp)(ChatRoom);

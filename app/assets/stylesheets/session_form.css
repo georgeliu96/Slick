@@ -49,9 +49,10 @@
     border: 1px solid #868686;
     border-radius: .25rem;
     margin: 0 auto 10px;
-    width: 85%;
+    width: 100%;
     color: black;
     font-weight: 300;
+    box-sizing: border-box;
 }
 
 .session-form{
@@ -97,11 +98,12 @@
     background-color: #007a5a;
     border-radius: .25rem;
     margin: 0 auto 10px;
-    width: 90%;
+    width: 100%;
     color: white;
     font-weight: 600;
     font-family: 'Lato', sans-serif;
     outline: 0;
+
 }
 
 .session-submit-button:hover {
