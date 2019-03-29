@@ -20,7 +20,7 @@ class MessageForm extends React.Component {
         this.setState({body: ""});
     }
 
-    render() { //App.cable undefined here
+    render() { 
         return (
             <div> 
                 <form onSubmit={this.handleSubmit.bind(this)}>

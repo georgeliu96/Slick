@@ -22,7 +22,6 @@ class ChatRoom extends React.Component {
             }
         }
         );
-        //App.cable exists HERE
     }
      
     componentDidUpdate() {
@@ -39,7 +38,7 @@ class ChatRoom extends React.Component {
         return (
             <div className="chatroom-container">
                 <div>Chatroom</div>
-                <div className="message-list">{messageList}</div>
+                <ul className="message-list">{messageList}</ul>
                 <MessageForm cable={App.cable}/>
             </div>
         )
