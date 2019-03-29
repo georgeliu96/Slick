@@ -101,4 +101,9 @@
     color: white;
     font-weight: 600;
     font-family: 'Lato', sans-serif;
+    outline: 0;
+}
+
+.session-submit-button:hover {
+    box-shadow: 1px 1px 2px #868686;
 }
