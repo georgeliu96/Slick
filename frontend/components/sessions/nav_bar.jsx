@@ -7,10 +7,10 @@ const NavBar = props => {
         <ul className="session-nav">
             <li><Link to="/" className="logo"><img className="logo-pic" src={window.logo}/>Slack Clone</Link></li>
 
-            <li>Why Slack?</li>
-            <li>Solutions</li>
-            <li>Resources</li>
-            <li>Pricing</li>
+            <li><Link to="/coming-soon" className="navbar-link">Why Slack?</Link></li>
+            <li><Link to="/coming-soon" className="navbar-link">Solutions</Link></li>
+            <li><Link to="/coming-soon" className="navbar-link">Resources</Link></li>
+            <li><Link to="/coming-soon" className="navbar-link">Pricing</Link></li>
             <SessionButtonsContainer />
         </ul>
     </>;

@@ -86,3 +86,7 @@
     color: white;
     background-color: #410b48;
 }
+
+.navbar-link {
+    text-decoration: none;
+}
