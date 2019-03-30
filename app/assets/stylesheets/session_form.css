@@ -1,5 +1,10 @@
+.form-container {
+    width: 1024px;
+    margin: 0 auto;
+}
+
 .session-container{
-    max-width: 35%;
+    width: 66%;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -8,7 +13,7 @@
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 2rem 2rem 1rem;
+    padding: 2rem 0.5rem 1rem;
 }
 
 .background{
@@ -61,7 +66,7 @@
 }
 
 .inner-form-container {
-    width: 80%;
+    width: 70%;
 }
 
 .session-form-input:focus{
@@ -75,7 +80,7 @@
 }
 
 .errors {
-    max-width: 38%;
+    width: 66%;
     margin: 0 auto;
     margin-bottom: 20px;
     background-color: white;
