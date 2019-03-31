@@ -1,0 +1,31 @@
+.sidebar {
+    max-width: 220px;
+    height: 100vh;
+    background-color: #3f0e40;
+}
+
+.sidebar * {
+    color: rgb(178,159,179);
+    font-family: 'Lato', sans-serif;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.workspace-name {
+    color: white;
+    width: 80%;
+    font-size: 18px;
+    height: 1.2em;
+    padding-top: 10px;
+    margin: 0;
+}
+
+.sidebar-div {
+    margin: 15px;
+    margin-top: 0px;
+}
+
+.fa-bell {
+    position: absolute;
+}

@@ -11,7 +11,7 @@ class Sidebar extends React.Component {
         return (
             <div className="sidebar">
                 <div className="sidebar-header sidebar-div">
-                    <h1 className="workspace-name">Workspace Name Placeholder</h1>
+                    <h1 className="workspace-name">Workspace Name Placeholder TEST TEST TEST</h1>
                     <label className="sidebar-username">{this.props.currentUser ? this.props.currentUser.username : ""}</label>
                     <i class="far fa-bell"></i>
                 </div>
