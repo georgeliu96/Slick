@@ -37,7 +37,6 @@ class MessageForm extends React.Component {
                 <form onSubmit={this.handleSubmit.bind(this)} className="msg-form">
                     <input type="text" className="message-input" value={this.state.body} onChange={this.update("body")} placeholder="Message #general"/>
                     <i className="fas fa-plus"></i>
-                    {/* <i className="far fa-laugh"></i> */}
                     <i className="far toggle-smile fa-smile"></i>
                     <i className="at-sym">@</i>
                 </form>
