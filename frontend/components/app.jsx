@@ -8,7 +8,7 @@ import NavBar from './sessions/nav_bar';
 import { Route, Switch } from 'react-router-dom';
 import ComingSoon from './coming_soon';
 import {AuthRoute} from '../util/route_util';
-import ChatRoom from './messages/chatroom';
+// import ChatRoom from './messages/chatroom';
 
 const App = () => {
     return (
@@ -23,7 +23,7 @@ const App = () => {
         <AuthRoute path="/signin" component={LoginFormContainer} />
         <AuthRoute path="/get-started" component={SignupFormContainer} />
         <Route path="/coming-soon" component={ComingSoon} />
-        <Route path="/messages" component={ChatRoom} />
+        {/* <Route path="/messages" component={ChatRoom} /> */}
     </div>)
 }
 

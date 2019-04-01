@@ -1,4 +1,5 @@
 import React from 'react';
+import ChatRoom from './chatroom';
 
 class Sidebar extends React.Component {
 
@@ -9,6 +10,7 @@ class Sidebar extends React.Component {
     render() {
         const keytype = (navigator.appVersion.indexOf("Mac")!=-1) ? "⌘" : "Ctrl";
         return (
+            <div className="chatroom-window">
             <div className="sidebar">
                 <div className="sidebar-header sidebar-div">
                     <div className="inner-sidebar-header">
@@ -59,6 +61,8 @@ class Sidebar extends React.Component {
                     </p>
                     <i class="fas fa-plus-circle"></i>
                 </div>
+            </div>
+            <ChatRoom/>
             </div>
         )
     }

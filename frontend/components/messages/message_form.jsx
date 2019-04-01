@@ -22,10 +22,9 @@ class MessageForm extends React.Component {
 
     render() { 
         return (
-            <div> 
+            <div className="message-form"> 
                 <form onSubmit={this.handleSubmit.bind(this)}>
-                    <input type="text" value={this.state.body} onChange={this.update("body")} placeholder="Message #general"/>
-                    <input type="submit"/>
+                    <input type="text" className="message-input" value={this.state.body} onChange={this.update("body")} placeholder="Message #general"/>
                 </form>
             </div>
         )

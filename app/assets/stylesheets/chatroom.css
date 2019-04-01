@@ -1,0 +1,30 @@
+.chatroom-window {
+    display: flex;
+}
+
+.chatroom-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.workspace-title {
+    color: black;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.message-form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.message-input {
+    width: 100%;
+}
+
+.message-list {
+    overflow-y: scroll;
+    height: 80%;    
+}

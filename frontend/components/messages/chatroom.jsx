@@ -61,10 +61,11 @@ class ChatRoom extends React.Component {
         ))
         return (
             <div className="chatroom-container">
-                <div>Slack Channel</div>
-                <ul className="message-list">{messageList}</ul>
+                <div className="workspace-title">Slack Channel</div>
+                <div><ul className="message-list">{messageList}</ul>
                 <div id='bottom' />
                 <MessageForm/>
+                </div>
             </div>
         )
     }
