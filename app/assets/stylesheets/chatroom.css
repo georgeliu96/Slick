@@ -7,12 +7,17 @@
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    height: 100vh;
 }
 
 .workspace-title {
     color: black;
     font-size: 40px;
     font-weight: 700;
+}
+
+.message-list-div {
+    height: 100vh;
 }
 
 .message-form {
@@ -26,5 +31,58 @@
 
 .message-list {
     overflow-y: scroll;
-    height: 80%;    
+    height: 89%;    
+    list-style: none;
+}
+
+.message-list > li {
+    color: #1d1c1d;
+}
+
+.chat-user {
+    color: #1d1c1d;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.chatroom-container:hover ::-webkit-scrollbar-thumb {
+    transition: background-color 10s ease 1s;
+    -webkit-transition: background-color 10s ease 1s;
+    -moz-transition: background-color 10s ease 1s;
+    background-color: rgba(29,28,29,.52); 
+}
+
+.profile-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 5px;
+}
+
+
+.message {
+    display: flex;
+    padding: 6px 0;
+}
+
+.same-user {
+    padding-top: 2px;
+}
+
+.message-left {
+    height: 100%;
+}
+
+.message-right {
+    padding-left: 70px;
+}
+
+.message:hover {
+    background: rgba(184, 184, 184, 0.1);
 }

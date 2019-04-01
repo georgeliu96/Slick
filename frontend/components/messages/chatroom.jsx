@@ -48,22 +48,30 @@ class ChatRoom extends React.Component {
     // }
 
     componentDidUpdate() {
-        document.getElementById('bottom').scrollIntoView();
+        document.getElementById('bottom').scrollIntoView(false);
     }
 
     render() {
-    
         const messageList = this.state.messages.map((message, index) => (
-            <li key={index}>
-                <label className="chat-user">{this.props.users[this.state.users[index]] ? this.props.users[this.state.users[index]].username : ""}</label>    
-                <br></br>{message}
+            (index === 0 || this.state.users[index] !== this.state.users[index-1]) ? ( 
+            <li key={index} className="message">
+                <div className="message-left"><img src={this.props.users[this.state.users[index]] ? this.props.users[this.state.users[index]].user_image_url : ""} className="profile-pic"></img></div>
+                <div className="message-right"><b className="chat-user">{this.props.users[this.state.users[index]] ? this.props.users[this.state.users[index]].username : ""}</b>    
+                <br></br>{message}</div>
             </li>
+            ):
+            (
+                <li key={index} className="message same-user">
+                    <div className="message-left"></div>
+                    <div className="message-right">{message}</div>
+                </li>
+            )
         ))
         return (
             <div className="chatroom-container">
                 <div className="workspace-title">Slack Channel</div>
-                <div><ul className="message-list">{messageList}</ul>
-                <div id='bottom' />
+                <div className="message-list-div"><ul className="message-list">{messageList}<div id='bottom' /></ul>
+                
                 <MessageForm/>
                 </div>
             </div>
