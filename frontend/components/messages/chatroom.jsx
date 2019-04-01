@@ -52,24 +52,36 @@ class ChatRoom extends React.Component {
     }
 
     render() {
+        $(document).ready(function () {    
+            $(".fa-star").click(function () {    
+                $('.fa-star').toggleClass("fas far")
+        })});
         const messageList = this.state.messages.map((message, index) => (
             (index === 0 || this.state.users[index] !== this.state.users[index-1]) ? ( 
             <li key={index} className="message">
                 <div className="message-left"><img src={this.props.users[this.state.users[index]] ? this.props.users[this.state.users[index]].user_image_url : ""} className="profile-pic"></img></div>
                 <div className="message-right"><b className="chat-user">{this.props.users[this.state.users[index]] ? this.props.users[this.state.users[index]].username : ""}</b>    
-                <br></br>{message}</div>
+                <br></br><p className="message-body">{message}</p></div>
             </li>
             ):
             (
                 <li key={index} className="message same-user">
                     <div className="message-left"></div>
-                    <div className="message-right">{message}</div>
+                    <div className="message-right"><p className="message-body">{message}</p></div>
                 </li>
             )
         ))
         return (
             <div className="chatroom-container">
-                <div className="workspace-title">Slack Channel</div>
+                <div className="workspace-header-bar">
+                    <div className="channel-title"># general</div>
+                    <div className="channel-icons">
+                        <i className="far fa-star"></i>
+                        <i className="far fa-user"><b> 30</b></i>
+                        <i className="fas fa-map-pin"><b> 2</b></i>
+                        <i className="far fa-edit"><b> Add a topic</b></i>
+                    </div>
+                </div>
                 <div className="message-list-div"><ul className="message-list">{messageList}<div id='bottom' /></ul>
                 
                 <MessageForm/>

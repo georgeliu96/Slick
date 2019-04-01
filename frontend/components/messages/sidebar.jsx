@@ -12,6 +12,7 @@ class Sidebar extends React.Component {
         return (
             <div className="chatroom-window">
             <div className="sidebar">
+                <div className="hidden-width"></div>
                 <div className="sidebar-header sidebar-div">
                     <div className="inner-sidebar-header">
                         <h1 className="workspace-name">Workspace Name</h1> 

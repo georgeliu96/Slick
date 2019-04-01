@@ -1,5 +1,5 @@
 .sidebar {
-    max-width: 220px;
+    width: 220px;
     height: 100vh;
     background-color: #3f0e40;
 }
@@ -74,14 +74,18 @@
     cursor: pointer;
 }
 
+.hidden-width {
+    width: 220px;
+}
+
 .sidebar-search {
     background: rgb(38, 0, 39);
     display: flex;
     justify-content: space-between;
-    margin: 0 auto;
+    margin: 10px;
+    margin-right: 10px;
     padding: 8px 8px;
     border-radius: 4px;
-    width: 192px;
     font-size: 100%;
     margin-bottom: 20px;
 }
@@ -167,10 +171,18 @@
     margin-top: 20px;
     padding-top: 5px;
     padding-bottom: 5px;
+    display: flex;
+    align-items: center;
 }
 
 .fa-plus-circle {
     padding-right: 4px;
+}
+
+.add-channel > .fa-plus {
+    font-size: 100%;
+    border: 0;
+    padding: 0;
 }
 
 .add-channel:hover {
@@ -276,3 +288,4 @@
 .apps-list-header:hover {
     color: white;
 }
+

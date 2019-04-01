@@ -21,10 +21,25 @@ class MessageForm extends React.Component {
     }
 
     render() { 
+        $(document).ready(function () {    
+            $(".toggle-smile").hover(function () {    
+                $(".toggle-smile")
+                   .addClass("fa-laugh")
+                   .removeClass("fa-smile");
+                }, function () {
+                $(".toggle-smile")
+                    .addClass("fa-smile")
+                    .removeClass("fa-laugh");
+            });    
+        });
         return (
             <div className="message-form"> 
-                <form onSubmit={this.handleSubmit.bind(this)}>
+                <form onSubmit={this.handleSubmit.bind(this)} className="msg-form">
                     <input type="text" className="message-input" value={this.state.body} onChange={this.update("body")} placeholder="Message #general"/>
+                    <i className="fas fa-plus"></i>
+                    {/* <i className="far fa-laugh"></i> */}
+                    <i className="far toggle-smile fa-smile"></i>
+                    <i className="at-sym">@</i>
                 </form>
             </div>
         )

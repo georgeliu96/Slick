@@ -17,7 +17,7 @@
 }
 
 .message-list-div {
-    height: 100vh;
+    height: calc(100vh - 45px);
 }
 
 .message-form {
@@ -31,12 +31,11 @@
 
 .message-list {
     overflow-y: scroll;
-    height: 89%;    
+    height: 91%;    
     list-style: none;
-}
-
-.message-list > li {
-    color: #1d1c1d;
+    padding-left: 0;
+    margin-bottom: 0;
+    margin-top: 0;
 }
 
 .chat-user {
@@ -65,6 +64,14 @@
     border-radius: 5px;
 }
 
+.message-body {
+    padding: 0;
+    margin: 0;
+    overflow-wrap: break-word;
+    color: #1d1c1d;
+    font-family: 'Lato', sans-serif;
+    word-spacing: 2px;
+}
 
 .message {
     display: flex;
@@ -77,12 +84,173 @@
 
 .message-left {
     height: 100%;
+    padding-left: 20px;
+    width: 30px;
 }
 
 .message-right {
-    padding-left: 70px;
+    padding-left: 20px;
+    margin-right: 20px;
+    width: calc(92vw - 220px);
 }
 
 .message:hover {
     background: rgba(184, 184, 184, 0.1);
+}
+
+.message-input {
+    padding: 10px 20px 10px 10px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    cursor: text;
+    outline: 0;
+    box-shadow: none;
+    border: 2px solid rgb(160, 160, 160);
+    word-wrap: break-word;
+    font-family: 'Lato', sans-serif;
+    color: #1d1c1d;
+    font-size: 16px;
+    width: 100%;
+    border-left: 0px;
+    padding-right: 60px;
+}
+
+.msg-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    position: relative;
+}
+
+.message-input::placeholder {
+    color: rgb(192, 192, 192);
+}
+
+.message-input:focus {
+    border: 2px solid rgb(80, 80, 80);
+    border-left: 0px;
+}
+
+.message-form {
+    margin: 0 20px;
+    margin-right: 10px;
+    width: calc((100vw - 220px) * 0.95);
+}
+
+.msg-form > .fa-plus {
+    margin-right: 0;
+    font-size: 100%;
+    color: rgb(160, 160, 160);
+    border: 2px solid rgb(160, 160, 160);
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    padding: 11px;
+    padding-right: 10px;
+    padding-bottom: 12px;
+}
+
+.message-input:focus + .fa-plus{
+    border: 2px solid rgb(80, 80, 80);
+    color: rgb(80, 80, 80);
+}
+
+.msg-form > .fa-plus:hover {
+    background-color: rgb(65, 175, 111);
+    border-color: rgb(17, 112, 57);
+    color: white;
+}
+
+.at-sym {
+    position: absolute;
+    right: 40px;
+    font-size: 120%;
+}
+
+.at-sym:hover {
+    color: rgb(65, 99, 172);
+    transition: color 0.2s linear;
+    transition: font-size 0.2s linear;
+    font-size: 150%;
+    cursor: pointer;
+}
+
+.toggle-smile {
+    position: absolute;
+    right: 10px;
+    font-size: 120%;
+}
+
+.fa-laugh:hover {
+    background-color: gold;
+    border-radius: 50%;
+    transition: color 0.2s linear;
+    transition: font-size 0.2s linear;
+    font-size: 150%;
+    cursor: pointer;
+}
+
+.workspace-header-bar {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    height: 60px;
+    padding-bottom: 0px;
+}
+
+.channel-title {
+    font-size: 120%;
+    color: black;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    padding-left: 15px;
+}
+
+.channel-icons {
+    padding-top: 5px;
+    padding-left: 15px;
+}
+
+.channel-icons > i {
+    font-size: 80%;
+    padding-left: 8px;
+    padding-right: 8px;
+    border-right: 1px solid lightgray;
+}
+
+.channel-icons > i:last-child {
+    border-right: 0;
+}
+
+.fa-star:hover {
+    color: gold;
+}
+
+.channel-icons > .fas.fa-star {
+    color: gold;
+    margin-right: 0;
+}
+
+.fa-user {
+    font-family: 'Lato', sans-serif;
+}
+
+.fa-user:hover, .fa-user:hover > b {
+    color: rgb(76, 114, 197);
+}
+
+.fa-map-pin:hover, .fa-map-pin:hover > b {
+    color: rgb(76, 114, 197);
+}
+
+.channel-icons > .fa-edit {
+    padding: 5px;
+}
+
+.channel-icons > .fa-edit:hover {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.fa-edit > b {
+    font-weight: 400;
 }
