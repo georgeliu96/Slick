@@ -10,33 +10,43 @@ class Channel extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers().then(() => {
-            App.cable.subscriptions.create({
-                channel: "ChatChannel",
-                id: this.props.currentChannel.id 
-            }, {
-                received: data => {
-                    switch (data.type) {
-                        case "message": {
-                            this.setState({
-                                messages: this.state.messages.concat(data.message[0]),
-                                users: this.state.users.concat(data.message[1])
-                            });
-                            break;
-                        }
-                        case "messages": {
-                            this.setState({messages: data.messages[0], users: data.messages[1]});
-                            break;
-                        }
-                    }
-                },
-                speak: function(data) {return this.perform("speak", data);},
-                load: function() {return this.perform("load");}
-            });
+            this.subscribe();
         })
     }
 
-    componentDidUpdate() {
+    subscribe () {
+        App.cable.subscriptions.create({
+            channel: "ChatChannel",
+            id: this.props.currentChannel.id 
+        }, {
+            received: data => {
+                switch (data.type) {
+                    case "message": {
+                        this.setState({
+                            messages: this.state.messages.concat(data.message[0]),
+                            users: this.state.users.concat(data.message[1])
+                        });
+                        break;
+                    }
+                    case "messages": {
+                        this.setState({messages: data.messages[0], users: data.messages[1]});
+                        break;
+                    }
+                }
+            },
+            speak: function(data) {return this.perform("speak", data);},
+            load: function(id) {return this.perform("load", id);},
+            unsub: function() {App.cable.subscriptions.remove(this);}
+        });
+    }
+
+    componentDidUpdate(prevProps) {
         document.getElementById('bottom').scrollIntoView(false);
+
+        if (prevProps.currentChannel.id !== this.props.currentChannel.id) {
+            App.cable.subscriptions.subscriptions[0].unsub(); 
+            this.subscribe();
+        }
     }
 
     render() {

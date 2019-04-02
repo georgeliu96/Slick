@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchChannels } from '../../actions/channel_actions';
 import SideBarContainer from './sidebar_container';
-import ChannelContainer from '../channels/channel_container';
+// import ChannelContainer from '../channels/channel_container';
 
 class ChatRoom extends React.Component {
 
