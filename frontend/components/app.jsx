@@ -3,19 +3,19 @@ import React from 'react';
 import SplashPageContainer from './sessions/splash_page_container';
 import LoginFormContainer from './sessions/login_form_container';
 import SignupFormContainer from './sessions/signup_form_container';
-import SidebarContainer from './messages/sidebar_container';
+// import SideBarContainer from './messages/sidebar_container';
 import NavBar from './sessions/nav_bar';
 import { Route, Switch } from 'react-router-dom';
 import ComingSoon from './coming_soon';
-import {AuthRoute} from '../util/route_util';
-// import ChatRoom from './messages/chatroom';
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import ChatRoom from './messages/chatroom';
 
 const App = () => {
     return (
     <div>
         <header>
             <Switch>
-                <Route path="/messages" component={SidebarContainer} />
+                <Route path="/messages/:channelId" component={ChatRoom} />
                 <Route path="/" component={NavBar} />
             </Switch>
         </header>

@@ -29,7 +29,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         this.props.demoLogin({username: "demo", password: "password", email: "demo@email.com"})
             .then(()=>{
-                this.props.history.push('/messages');
+                this.props.history.push('/messages/1');
                 window.location.reload();
             });
     }

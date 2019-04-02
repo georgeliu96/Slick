@@ -23,6 +23,15 @@ class User < ApplicationRecord
 
     has_many :messages 
 
+    has_many :user_channels,
+        class_name: :UserChannel,
+        foreign_key: :user_id
+
+    has_many :channels,
+        through: :user_channels,
+        source: :channel 
+
+
     def password=(password)
         @password = password 
         self.password_digest= BCrypt::Password.create(password)

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do 
     resources :users, only: %i(create index show) 
     resource :session, only: %i(create destroy show) 
+    resources :channels, only: %i(index create show destroy)
+    post "/dm_channels", to: "channels#create_dm"
   end 
 
   mount ActionCable.server, at: '/cable'
