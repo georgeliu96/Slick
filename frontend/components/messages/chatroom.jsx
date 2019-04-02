@@ -25,7 +25,6 @@ class ChatRoom extends React.Component {
     }
 
     render() {
-        debugger 
         return (this.state.channels.length > 0) ?  ( 
             <SideBarContainer channels={this.state.channels} currentChannel={this.state.currentChannel}/>
         ) :

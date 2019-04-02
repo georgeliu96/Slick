@@ -69,7 +69,6 @@ class Channel extends React.Component {
                 </li>
             )
         ))
-        debugger 
         return (
             <div className="chatroom-container">
                 <div className="workspace-header-bar">

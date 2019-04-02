@@ -6,7 +6,6 @@ class Sidebar extends React.Component {
 
     constructor(props) {
         super(props);
-        debugger 
         this.state = {
             currentChannel: this.props.currentChannel
         };
@@ -38,7 +37,6 @@ class Sidebar extends React.Component {
                 </Link>
             }
         })
-        debugger 
         return (
         <div className="chatroom-window">
             <div className="sidebar">
