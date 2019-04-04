@@ -10,7 +10,7 @@ class ChatRoom extends React.Component {
         super(props);
         this.state = { 
             channels: [],
-            currentChannel: this.props.match.params.channelId
+            currentChannel: this.props.match.params.channelId || -1
         }
     }    
 
@@ -19,8 +19,9 @@ class ChatRoom extends React.Component {
         this.props.fetchChannels().then(() => {
             that.setState({
                 channels: Object.values(that.props.channels),
-                currentChannel: that.props.channels[that.props.match.params.channelId]
+                currentChannel: that.props.channels[that.props.match.params.channelId || Object.values(that.props.channels)[0].id]
             })
+            that.props.history.push(`/messages/${this.state.currentChannel.id}`)
         });
     }
 

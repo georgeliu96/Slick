@@ -1,22 +1,21 @@
 class Api::ChannelsController < ApplicationController 
 
     def index 
-        @channels = Channel.all 
+        @channels = Channel.all.includes(:user_channels)
     end 
 
     def show 
-        @channel = Channel.find_by(id: params[:id])
+        @channel = Channel.includes(:user_channels).find_by(id: params[:id])
     end 
 
     def create 
-        @channel = Channel.new(channel_params, workspace_id: 1, direct_message?: false)
+        @channel = Channel.new(channel_params)
+        @channel.workspace_id = 1
+        @channel["direct_message?"] = false;
         # TODO: change line 12 to specific workspace upon implementing workspaces
         if @channel.save 
             # TODO: will eventually select only users in the specific workspace
-            users = User.all
-            users.each do |user| 
-                UserChannel.create(channel_id: @channel.id, user_id: user.id)
-            end 
+            @channel.users << User.all
             render "api/channels/show"
         else 
             render json: @channel.errors.full_messages, status: 422
@@ -24,10 +23,16 @@ class Api::ChannelsController < ApplicationController
     end 
 
     def create_dm 
-        @channel = Channel.new(channel_params, workspace_id: 1, direct_message?: true) 
+        @channel = Channel.new(channel_params) 
+        @channel.workspace_id = 1
+        @channel["direct_message?"] = true
+        ids = [] 
+        params["channel"][:users].each do |_,v| 
+            ids << v["id"]
+        end 
+        ids << current_user.id
+        @channel.user_ids = ids
         if @channel.save  
-            # HOW TO ADD OTHER USERS TO THIS DM?
-            UserChannel.create(channel_id: @channel.id, user_id: current_user.id)
             render "api/channels/show"
         else 
             render json: @channel.errors.full_messages, status: 422 

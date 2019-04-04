@@ -11,6 +11,7 @@ class Api::UsersController < ApplicationController
     def create 
         @user = User.new(user_params)
         if @user.save 
+            @user.channels << Channel.all.where(direct_message?: false)
             login!(@user)
             render "api/users/show"
         else 

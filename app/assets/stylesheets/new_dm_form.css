@@ -1,0 +1,92 @@
+.outer-dm-form-div {
+    position: absolute;
+    z-index: 100000;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+}
+
+.inner-dm-form-div { 
+    padding: 15vh 2rem 2rem;
+    width: 55vw;
+    margin: 0 auto;
+    padding-bottom: 0;
+}
+
+.inner-dm-form-div * {
+    font-family: 'Lato', sans-serif;
+    color: #1d1c1d;
+}
+
+.dm-form-header {
+    font-size: 34px;
+    line-height: 41px;
+    font-weight: 900;
+}
+
+.dm-form-bar {
+    display:flex;
+    flex-direction: space-between; 
+}
+
+.dm-form-users-names {
+    line-height: normal;
+    padding: .75rem;
+    border: 1px solid #868686;
+    border-radius: .25rem;
+    outline: 0;
+    width: 90%;
+    font-size: 18px;
+    color: #1d1c1d;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.create-dm-button {
+    padding: .75rem;
+    font-size: 18px;
+    background: #007a5a;
+    color: #fff;
+    line-height: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-shadow: none;
+    border: none;
+    border-radius: .25rem;
+    margin-left: 10px;
+}
+
+.create-dm-button:disabled {
+    background: #ddd;
+    color: rgba(29,28,29,.75);
+    cursor: default;
+}
+
+.users-list-dm-form {
+    list-style: none;
+    padding-left: 0;
+    height: 60vh;
+    overflow: scroll;
+}
+
+.select-user-dm {
+    align-self: center;
+    width: 100;
+    height: 3rem;
+    border-bottom: 1px solid #868686;
+    padding: auto;
+}
+
+.select-user-dm:first-child{
+    border-top: 1px solid #868686;
+}
+
+.select-user-dm:hover {
+    background: rgb(196, 224, 236);
+    border: 1px solid rgb(164, 164, 235);
+    border-radius: .25rem;
+}
+
+.select-user-dm.selected {
+    background: #4daf95;
+}

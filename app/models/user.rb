@@ -23,14 +23,15 @@ class User < ApplicationRecord
 
     has_many :messages 
 
-    has_many :user_channels,
-        class_name: :UserChannel,
-        foreign_key: :user_id
+    has_many :user_channels
 
     has_many :channels,
         through: :user_channels,
         source: :channel 
 
+    def dms 
+        self.channels.where("direct_message? = true")
+    end 
 
     def password=(password)
         @password = password 

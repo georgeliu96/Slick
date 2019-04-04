@@ -16,9 +16,7 @@ class Channel < ApplicationRecord
     validates :name, :description, :workspace_id, presence: true 
     validates :direct_message?, inclusion: {in: [true, false]} 
 
-    has_many :user_channels,
-        class_name: :UserChannel,
-        foreign_key: :channel_id
+    has_many :user_channels
 
     has_many :users,
         through: :user_channels,

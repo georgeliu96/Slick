@@ -15,9 +15,8 @@ class SessionForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const that = this;
-        //TODO redirect to a specific message channel for the logged-in user
         this.props.action(this.state).then(()=>{
-            this.props.history.push(`/messages`)
+            that.props.history.push(`/messages/`)
             window.location.reload();
         }, ()=>
         {
@@ -29,7 +28,7 @@ class SessionForm extends React.Component {
         e.preventDefault();
         this.props.demoLogin({username: "demo", password: "password", email: "demo@email.com"})
             .then(()=>{
-                this.props.history.push('/messages/1');
+                this.props.history.push('/messages/');
                 window.location.reload();
             });
     }

@@ -12,7 +12,7 @@ class ChatChannel < ApplicationCable::Channel
     message = Message.create(body: data['message'], channel_id: channel.id, user_id: data['id'])
     socket = {message: [message.body, data['id']], type: 'message'}
     ChatChannel.broadcast_to(channel, socket)
-    load(params[:id])
+    # load(params[:id])
   end 
 
   def load(id)

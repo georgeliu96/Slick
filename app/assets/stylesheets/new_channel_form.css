@@ -1,0 +1,116 @@
+.hidden-form {
+    display: none; 
+}
+
+.new-channel-form-page {
+    position: absolute;
+    z-index: 100000;
+    width: 100vw;
+    height: 100vh;
+    background: white;
+}
+
+.new-channel-form-page > .form-div {
+    padding: 15vh 2rem 2rem;
+    width: 55vw;
+    margin: 0 auto;
+}
+
+.form-div * {
+    font-family: 'Lato', sans-serif;
+    color: #1d1c1d;
+}
+
+.new-channel-form-header {
+    font-size: 34px;
+    line-height: 41px;
+    font-weight: 900;
+}
+
+.channel-form-desc {
+    font-size: .9rem;
+    line-height: 1.25rem;
+    color: #616061;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.new-channel-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.channel-label {
+    font-weight: 700;
+    margin: 0 0 .25rem;
+    display: block;
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
+
+.channel-input {
+    line-height: normal;
+    padding: .75rem;
+    border: 1px solid #868686;
+    border-radius: .25rem;
+    outline: 0;
+    width: 100%;
+    font-size: 18px;
+    color: #1d1c1d;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.channel-input:focus {
+    border: 1px solid #1d1c1d;
+}
+
+.channel-footer {
+    font-size: .8rem;
+    color: #616061;
+    display: block;
+    line-height: 1rem;
+    margin-top: .25rem;
+    margin-bottom: 1rem;
+}
+
+.channel-buttons-div {
+    display: flex;
+    width: 40%;
+    margin-left: 55%;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.cancel-form {
+    padding: 14px 32px 16px;
+    font-size: 18px;
+    background: #fff;
+    color: #1d1c1d;
+    box-shadow: inset 0 0 0 1px rgba(29,28,29,.3);
+    font-weight: 700;
+    cursor: pointer;
+    text-shadow: none;
+    border: none;
+    border-radius: .25rem;
+    margin-right: 10px;
+}
+
+.submit-form {
+    padding: 14px 32px 16px;
+    font-size: 18px;
+    background: #007a5a;
+    color: #fff;
+    line-height: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    text-shadow: none;
+    border: none;
+    border-radius: .25rem;
+}
+
+.submit-form:disabled {
+    background: #ddd;
+    color: rgba(29,28,29,.75);
+    cursor: default;
+}

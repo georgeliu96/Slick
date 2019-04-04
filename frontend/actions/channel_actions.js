@@ -10,7 +10,7 @@ const receiveChannels = channels => ({
 });
 
 const receiveChannel = channel => ({
-    type: RECEIVE_CHANNELS,
+    type: RECEIVE_CHANNEL,
     channel 
 });
 

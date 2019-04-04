@@ -1,25 +1,45 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ChannelContainer from '../channels/channel_container';
+import NewChannelContainer from '../channels/new_channel_form_container';
+import NewDMContainer from '../channels/new_dm_form_container';
 
 class Sidebar extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            currentChannel: this.props.currentChannel
+            currentChannel: this.props.currentChannel,
+            hidden: true,
+            hiddenDM: true
         };
+        this.hideChannel = this.hideChannel.bind(this);
+        this.hideDM = this.hideDM.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchUsers();
     }
 
+    hideChannel() {
+        this.setState({
+            hidden: true
+        })
+    }
+
+    hideDM() {
+        this.setState({
+            hiddenDM: true
+        })
+    }
+
+
     render() {
+
         const keytype = (navigator.appVersion.indexOf("Mac")!=-1) ? "⌘" : "Ctrl";
         const channels = this.props.channels.map((channel, index) => {
             if (!channel.direct_message) {
-                return   <Link to={`/messages/${channel.id}`} key={channel.id} onClick={() => this.setState({currentChannel: this.props.channels[index]})}>
+                return   <Link to={`/messages/${channel.id}`} key={channel.id} className="channel-Link" onClick={() => this.setState({currentChannel: this.props.channels[index]})}>
                 <li className={`channel ${channel.id}`} tabIndex={channel.id}>
                   
                         # <b className={`channel-name ${channel.id}`}>{channel.name}</b>
@@ -28,16 +48,20 @@ class Sidebar extends React.Component {
             }
         })
         const direct_messages = this.props.channels.map((channel, index) => {
-            if(channel.direct_message) {
-                return <Link to={`/messages/${channel.id}`} key={channel.id} onClick={() => this.setState({currentChannel: this.props.channels[index]})}>
-                <li className={`dm ${channel.id}`} tabIndex={channel.id}>
-                        <p className="dm-label"><i className="fas fa-circle"></i>{channel.name}</p>
-                            <i className="far fa-times-circle"></i>
-                    </li>
-                </Link>
+            if (this.props.current_user) {
+                if(channel.direct_message && channel.user_ids.includes(this.props.currentUser.id)) {
+                    return <Link to={`/messages/${channel.id}`} key={channel.id} className="channel-Link" onClick={() => this.setState({currentChannel: this.props.channels[index]})}>
+                    <li className={`dm ${channel.id}`} tabIndex={channel.id}>
+                            <p className="dm-label"><i className="fas fa-circle"></i>{channel.name}</p>
+                                <i className="far fa-times-circle"></i>
+                        </li>
+                    </Link>
+                }
             }
         })
-        return (
+        return <>
+        <NewChannelContainer hidden={this.state.hidden} hideChannel={this.hideChannel}/>
+        <NewDMContainer hidden={this.state.hiddenDM} hideDM={this.hideDM}/>
         <div className="chatroom-window">
             <div className="sidebar">
                 <div className="hidden-width"></div>
@@ -66,13 +90,13 @@ class Sidebar extends React.Component {
                         {channels}
                     </ul>
                 </div>
-                <div className="add-channel sidebar-div">
+                <div className="add-channel sidebar-div" onClick={() => this.setState({hidden: false})}>
                     <i className="fas fa-plus"></i> Add a channel 
                 </div>
                 <div className="dms-list sidebar-div">
                     <div className="dms-list-header">
                         <p className="dms-list-label">Direct Messages</p> 
-                        <i className="fas fa-plus-circle"></i>
+                        <i className="fas fa-plus-circle" onClick={() => this.setState({hiddenDM: false})}></i>
                     </div>
                     <ul className="dms-list-index">
                         {direct_messages}                        
@@ -87,7 +111,7 @@ class Sidebar extends React.Component {
             </div>
             <ChannelContainer currentChannel={this.state.currentChannel} />
         </div>
-        )
+        </>
     }
 }
 
