@@ -40,6 +40,8 @@ class NewChannelForm extends React.Component {
     render() {
         return (
         <div className={this.props.hidden ? "new-channel-form-page hidden-form" : "new-channel-form-page"}>
+            <button onClick={this.cancelForm} className="close-form-button"><i className="fas fa-times"></i></button>
+
             <div className="form-div">
                 <h1 className="new-channel-form-header">Create a channel</h1>
                 <div className = "channel-form-desc">

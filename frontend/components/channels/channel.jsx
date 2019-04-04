@@ -9,9 +9,7 @@ class Channel extends React.Component {
 
 
     componentDidMount() {
-        this.props.fetchUsers().then(() => {
-            this.subscribe();
-        })
+        this.subscribe();
     }
 
     subscribe () {

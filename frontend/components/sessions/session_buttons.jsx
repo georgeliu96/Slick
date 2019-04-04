@@ -13,7 +13,6 @@ class SessionButtons extends React.Component {
             <Link to={`/messages`} className="workspaces-link"><button className="workspaces-button">
                 Your Workspaces 
             </button></Link>
-            <button onClick={this.props.logout}>Logout</button>
             </>
         ) : (
             <>

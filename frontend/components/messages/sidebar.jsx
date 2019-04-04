@@ -11,10 +11,14 @@ class Sidebar extends React.Component {
         this.state = {
             currentChannel: this.props.currentChannel,
             hidden: true,
-            hiddenDM: true
+            hiddenDM: true,
+            hiddenLogout: true
         };
         this.hideChannel = this.hideChannel.bind(this);
         this.hideDM = this.hideDM.bind(this);
+        this.toggleLogout = this.toggleLogout.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
+        this.handleHome = this.handleHome.bind(this);
     }
 
     componentDidMount() {
@@ -27,12 +31,27 @@ class Sidebar extends React.Component {
         })
     }
 
+    toggleLogout() {
+        this.setState({
+            hiddenLogout: !this.state.hiddenLogout
+        })
+    }
+
     hideDM() {
         this.setState({
             hiddenDM: true
         })
     }
 
+    handleLogout() {
+        this.props.logout().then(() => (
+            this.props.history.push('/')    
+        ))
+    }
+
+    handleHome() {
+        this.props.history.push('/')
+    }
 
     render() {
 
@@ -48,12 +67,12 @@ class Sidebar extends React.Component {
             }
         })
         const direct_messages = this.props.channels.map((channel, index) => {
-            if (this.props.current_user) {
+            if (this.props.currentUser) {
                 if(channel.direct_message && channel.user_ids.includes(this.props.currentUser.id)) {
                     return <Link to={`/messages/${channel.id}`} key={channel.id} className="channel-Link" onClick={() => this.setState({currentChannel: this.props.channels[index]})}>
                     <li className={`dm ${channel.id}`} tabIndex={channel.id}>
                             <p className="dm-label"><i className="fas fa-circle"></i>{channel.name}</p>
-                                <i className="far fa-times-circle"></i>
+                                <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id)}></i>
                         </li>
                     </Link>
                 }
@@ -65,13 +84,17 @@ class Sidebar extends React.Component {
         <div className="chatroom-window">
             <div className="sidebar">
                 <div className="hidden-width"></div>
-                <div className="sidebar-header sidebar-div">
+                <div className="sidebar-header sidebar-div" onClick={this.toggleLogout}>
                     <div className="inner-sidebar-header">
                         <h1 className="workspace-name">Workspace Name</h1> 
                         <i className="fas fa-chevron-down"></i>
                         <label className="sidebar-username"><i className="fas fa-circle"></i> {this.props.currentUser ? this.props.currentUser.username : ""}</label>
                     </div>
                     <i className="far fa-bell"></i>
+                </div>
+                <div className={this.state.hiddenLogout ? "logout-div hidden-form" : "logout-div"}>
+                    <button onClick={this.handleHome} className="home-button">Home Page</button>
+                    <button onClick={this.handleLogout} className="logout-button">Log Out</button>
                 </div>
                 <div className="sidebar-search sidebar-div">
                     <div>

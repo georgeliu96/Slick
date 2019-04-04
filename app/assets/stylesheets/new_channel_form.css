@@ -12,6 +12,7 @@
 
 .new-channel-form-page > .form-div {
     padding: 15vh 2rem 2rem;
+    max-width: 700px;
     width: 55vw;
     margin: 0 auto;
 }

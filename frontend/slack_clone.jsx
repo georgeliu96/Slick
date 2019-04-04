@@ -10,10 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.currentUser) {
         const preloadedState = {
             session: { id: window.currentUser.id },
-            // TODO: add back in when entities reducer is setup
-            // entities: {
-            //     users: { [window.currentUser.id]: window.currentUser }
-            // }
+            entities: {
+                users: { [window.currentUser.id]: window.currentUser }
+            }
         };
         store = configureStore(preloadedState);
         delete window.currentUser;
@@ -27,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // window.signup = SessionUtil.signup;
     // window.login = SessionUtil.login;
     // window.logout = SessionUtil.logout;
-    window.getState = store.getState;
-    window.cable = App.cable;
+    // window.getState = store.getState;
+    // window.cable = App.cable;
     //Testing
 
     ReactDOM.render(<Root store={store}/>, root)

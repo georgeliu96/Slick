@@ -23,11 +23,6 @@ class NewDMForm extends React.Component {
             name,
             description: `Direct message between ${users.length + 1} people`
         })
-        debugger 
-    }
-
-    componentDidMount() {
-        this.props.fetchUsers();
     }
 
     handleSubmit() {
@@ -44,11 +39,12 @@ class NewDMForm extends React.Component {
     render() {
         const users = (this.props.users) ? (this.props.users.map(user => (
             <li className={`select-user-dm ${this.state.users.includes(user) ? "selected" : "" }`} key={user.id} onClick={()=>this.pickUser(user)}>
-                {user.username}
+                <img src={user.user_image_url} className="form-pic"></img><b className="form-username">{user.username}</b>
             </li>
         ))) : ("")
         return (
             <div className={this.props.hidden ? "outer-dm-form-div hidden-form" : "outer-dm-form-div"}>
+                <button onClick={this.props.hideDM} className="close-form-button"><i className="fas fa-times"></i></button>
                 <div className="inner-dm-form-div">
                     <h1 className="dm-form-header">Direct Message</h1>
                     <div className="dm-form-bar">

@@ -8,6 +8,7 @@
 
 .inner-dm-form-div { 
     padding: 15vh 2rem 2rem;
+    max-width: 700px;
     width: 55vw;
     margin: 0 auto;
     padding-bottom: 0;
@@ -70,11 +71,11 @@
 }
 
 .select-user-dm {
-    align-self: center;
-    width: 100;
     height: 3rem;
     border-bottom: 1px solid #868686;
-    padding: auto;
+    vertical-align: middle;
+    display: flex; 
+    align-items: center;
 }
 
 .select-user-dm:first-child{
@@ -89,4 +90,47 @@
 
 .select-user-dm.selected {
     background: #4daf95;
+}
+
+.form-pic {
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    border-radius: .2rem;
+}
+
+.form-username {
+    padding-left: 15px;
+}
+
+.inner-dm-form-div:hover ::-webkit-scrollbar-thumb {
+    background: rgba(29,28,29,.52); 
+    border-radius: 10px;
+}
+
+.close-form-button {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 250%;
+    width: 60px;
+    height: 60px;
+    background: none;
+    box-shadow: none;
+    border: none;
+}
+
+.close-form-button:hover {
+    background: #eeeded;
+    padding: 2px;
+    border: 1px solid #eeeded;
+    border-radius: 50%;
+}
+
+.close-form-button:focus {
+    outline: 0;
+}
+
+.close-form-button > .fa-times {
+    margin-right: 0;
 }
