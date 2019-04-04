@@ -1,5 +1,6 @@
 import React from 'react';
 import SplashFooter from './splash_footer';
+import Typed from 'typed.js'
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -27,12 +28,29 @@ class SessionForm extends React.Component {
 
     demoUser(e) {
         e.preventDefault();
-        this.props.demoLogin({username: "demo", password: "password", email: "demo@email.com"})
-            .then(()=>{
-                this.props.history.push('/messages/');
-                window.location.reload();
-            });
+        new Typed(".form-input-username", {
+            strings: ['demo'],
+            typeSpeed: 70,
+        })
+        new Typed(".form-input-password", {
+            strings: ['^1000password'],
+            typeSpeed: 70,
+
+        })
+        new Typed(".form-input-email", {
+            strings: ['^2000demo@email.com'],
+            typeSpeed: 70
+        })
+        setTimeout(() => {
+            this.props.demoLogin({username: "demo", password: "password", email: "demo@email.com"})
+                .then(()=>{
+                    this.props.history.push('/messages/');
+                    window.location.reload();
+                });
+            }, 
+        3500);
     }
+    
 
     handleInput(field) {
         return (e) => {
@@ -61,11 +79,11 @@ class SessionForm extends React.Component {
                         <div className="inner-form-container">
                             <p className="session-form-desc">Enter your <b>username</b>, <b>password</b>, and <b>email</b>.</p>
                             <form className="session-form">
-                                <input type="text" onChange={this.handleInput("username")} className="session-form-input" placeholder="username"/>
+                                <input type="text" onChange={this.handleInput("username")} className="session-form-input form-input-username" placeholder="username"/>
                                 <br></br>
-                                <input type="password" onChange={this.handleInput("password")} className="session-form-input" placeholder="password"/>
+                                <input type="password" onChange={this.handleInput("password")} className="session-form-input form-input-password" placeholder="password"/>
                                 <br></br>
-                                <input type="text" onChange={this.handleInput("email")} value={this.state.email} className="session-form-input" placeholder="you@example.com"/>
+                                <input type="text" onChange={this.handleInput("email")} value={this.state.email} className="session-form-input form-input-email" placeholder="you@example.com"/>
                                 <br></br>
                                 <input type="submit" className="session-submit-button" value={this.props.formType} onClick={this.handleSubmit}/>
                                 <input type="submit" className="session-submit-button" value="Demo User" onClick={this.demoUser} />
