@@ -76,12 +76,14 @@ class Channel extends React.Component {
             )
         ))
         let channelName = "";
-        if (this.props.currentChannel && this.props.currentChannel.direct_message) {
-            const names = this.props.currentChannel.name.split(", ")
-            names.splice(names.indexOf(this.props.currentUser.username), 1)
-            channelName = names.join(", ")
-        } else if (this.props.currentChannel) {
-            channelName = this.props.currentChannel.name
+        if (this.props.currentUser) {
+            if (this.props.currentChannel && this.props.currentChannel.direct_message) {
+                const names = this.props.currentChannel.name.split(", ")
+                names.splice(names.indexOf(this.props.currentUser.username), 1)
+                channelName = names.join(", ")
+            } else if (this.props.currentChannel) {
+                channelName = this.props.currentChannel.name
+            }
         }
         return (
             <div className="chatroom-container">
