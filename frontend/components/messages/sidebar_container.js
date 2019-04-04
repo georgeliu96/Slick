@@ -5,14 +5,15 @@ import { fetchUsers } from '../../actions/user_actions';
 import { createChannel, deleteChannel } from '../../actions/channel_actions';
 import { logout } from '../../actions/session_actions';
 
-const msp = state => ({
+const msp = state => {
+    return{
     currentUser: state.entities.users[state.session.id],
     channels: Object.values(state.entities.channels),
     channel: {
         name: "",
         description: ""
     }
-})
+}}
 
 const mdp = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),

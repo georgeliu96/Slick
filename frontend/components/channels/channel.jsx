@@ -1,5 +1,6 @@
 import React from 'react';
 import MessageForm from '../messages/message_form';
+import MessageFooter from '../messages/message_footer';
 
 class Channel extends React.Component {
     constructor(props) {
@@ -9,6 +10,7 @@ class Channel extends React.Component {
 
 
     componentDidMount() {
+        this.props.fetchUsers();
         this.subscribe();
     }
 
@@ -40,10 +42,15 @@ class Channel extends React.Component {
 
     componentDidUpdate(prevProps) {
         document.getElementById('bottom').scrollIntoView(false);
-
+        
         if (prevProps.currentChannel.id !== this.props.currentChannel.id) {
             App.cable.subscriptions.subscriptions[0].unsub(); 
             this.subscribe();
+        }
+        if (!(this.props.users[this.state.users[this.state.users.length - 1]])) {
+            if (this.state.users.length > 0) {
+                this.props.fetchUser(this.state.users[this.state.users.length - 1])
+            }
         }
     }
 
@@ -52,6 +59,7 @@ class Channel extends React.Component {
             $(".fa-star").click(function () {    
                 $('.fa-star').toggleClass("fas far")
         })});
+
         const messageList = this.state.messages.map((message, index) => (
             (index === 0 || this.state.users[index] !== this.state.users[index-1]) ? ( 
             <li key={index} className="message">
@@ -67,16 +75,25 @@ class Channel extends React.Component {
                 </li>
             )
         ))
+        let channelName = "";
+        if (this.props.currentChannel && this.props.currentChannel.direct_message) {
+            const names = this.props.currentChannel.name.split(", ")
+            names.splice(names.indexOf(this.props.currentUser.username), 1)
+            channelName = names.join(", ")
+        } else if (this.props.currentChannel) {
+            channelName = this.props.currentChannel.name
+        }
         return (
             <div className="chatroom-container">
                 <div className="workspace-header-bar">
-                    <div className="channel-title"># {this.props.currentChannel ? this.props.currentChannel.name : ""}</div>
+                    <div className="channel-title"># {this.props.currentChannel ? channelName : ""}</div>
                     <div className="channel-icons">
                         <i className="far fa-star"></i>
                         <i className="far fa-user"><b> {this.props.currentChannel ? this.props.currentChannel.user_ids.length : 0}</b></i>
                         <i className="fas fa-map-pin"><b> 2</b></i>
                         <i className="far fa-edit"><b> {this.props.currentChannel ? this.props.currentChannel.description || "Add a topic" : ""}</b></i>
                     </div>
+                    <MessageFooter/>
                 </div>
                 <div className="message-list-div"><ul className="message-list">{messageList}<div id='bottom' /></ul>
                 

@@ -1,0 +1,31 @@
+.message-footer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    padding-right: 5vw;
+    padding-top: 5px;
+    width: 15vw;
+    justify-content: space-between;
+}
+
+.message-footer-link {
+    display: flex;
+    align-items: middle;
+    text-decoration: none;
+    padding: 5px;
+}
+
+.message-footer-link:hover {
+    background: rgb(243, 243, 243);
+    border-radius: 5px;
+}
+
+.message-footer-label {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    padding-top: 15px;
+    font-size: 20px;
+    padding-left: 5px;
+}

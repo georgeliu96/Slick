@@ -1,9 +1,10 @@
 import React from 'react';
-import NavBar from './sessions/nav_bar';
+import SplashFooter from './sessions/splash_footer';
 
 const ComingSoon = props => {
     return <>
             <h1>Coming soon...</h1>
+            <SplashFooter/>
         </>
 } 
 

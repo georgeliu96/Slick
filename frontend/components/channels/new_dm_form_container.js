@@ -5,6 +5,7 @@ import { fetchUsers } from '../../actions/user_actions'
 
 const msp = state => (
     {
+        currentUser: state.entities.users[state.session.id],
         users: Object.values(state.entities.users),
         channel: {
             name: "",

@@ -69,9 +69,12 @@ class Sidebar extends React.Component {
         const direct_messages = this.props.channels.map((channel, index) => {
             if (this.props.currentUser) {
                 if(channel.direct_message && channel.user_ids.includes(this.props.currentUser.id)) {
+                    const names = channel.name.split(", ")
+                    names.splice(names.indexOf(this.props.currentUser.username), 1)
+                    const new_name = names.join(", ")
                     return <Link to={`/messages/${channel.id}`} key={channel.id} className="channel-Link" onClick={() => this.setState({currentChannel: this.props.channels[index]})}>
                     <li className={`dm ${channel.id}`} tabIndex={channel.id}>
-                            <p className="dm-label"><i className="fas fa-circle"></i>{channel.name}</p>
+                            <p className="dm-label"><i className="fas fa-circle"></i>{new_name}</p>
                                 <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id)}></i>
                         </li>
                     </Link>

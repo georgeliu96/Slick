@@ -14,19 +14,26 @@ class NewDMForm extends React.Component {
         ) : (
             users.splice(users.indexOf(user), 1)
         )
-        const names = users.map(user => (
-            user.username
-        ))
+        const names = this.state.users.map(user => user.username)
         const name = names.join(", ")
         this.setState({
             users,
-            name,
-            description: `Direct message between ${users.length + 1} people`
+            name
         })
     }
 
     handleSubmit() {
-        this.props.createDM(this.state).then(() => (
+        let newState = {}
+        const users = this.state.users;
+        users.push(this.props.currentUser)
+        const names = users.map(user => (
+            user.username
+        ))
+        const name = names.join(', ')
+        newState.users = users;
+        newState.name = name;
+        newState.description = `Direct message between ${users.length} people`     
+        this.props.createDM(newState).then(() => (
             this.props.hideDM()
         ));
         this.setState({

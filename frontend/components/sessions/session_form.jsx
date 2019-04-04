@@ -1,4 +1,5 @@
 import React from 'react';
+import SplashFooter from './splash_footer';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -36,7 +37,8 @@ class SessionForm extends React.Component {
     handleInput(field) {
         return (e) => {
             this.setState({
-                [field]: e.target.value
+                [field]: e.target.value,
+                failed: false
             });
         };
     }
@@ -71,6 +73,7 @@ class SessionForm extends React.Component {
                         </div>
                     </div>
                 </div>
+                <SplashFooter/>
             </div>
         )
     }

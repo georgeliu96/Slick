@@ -41,6 +41,11 @@
     color: #1d1c1d;
     height: auto;
     box-sizing: border-box;
+    overflow-x: scroll
+}
+
+.dm-form-users-names:hover {
+    cursor: default;
 }
 
 .create-dm-button {

@@ -30,7 +30,6 @@ class Api::ChannelsController < ApplicationController
         params["channel"][:users].each do |_,v| 
             ids << v["id"]
         end 
-        ids << current_user.id
         @channel.user_ids = ids
         if @channel.save  
             render "api/channels/show"

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SplashFooter from './splash_footer';
 
 class SplashPage extends React.Component {
 
@@ -72,6 +73,7 @@ class SplashPage extends React.Component {
                 <img src="https://a.slack-edge.com/7a156/marketing/img/home/hero/Slack-Customer-Away.jpg" className="splash-pic pic1"/>
                 <img src="https://a.slack-edge.com/7a156/marketing/img/home/hero/Slack-Customer-Autodesk.jpg" className="splash-pic pic2"/>
                 <img src="https://a.slack-edge.com/7a156/marketing/img/home/hero/Slack-Customer-Molly-Moon-Ice-Cream.jpg" className="splash-pic pic3"/>
+                <SplashFooter/>
             </div>
     );}
 }
