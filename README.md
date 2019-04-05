@@ -5,6 +5,7 @@
 Live Site: [SlackClone Name-Pending](https://slack-clone-aa.herokuapp.com "Slack Clone")
 
 ![alt text][slackdemo]
+
 [slackdemo]: https://github.com/saphknight/SlackClone-Name-Pending/blob/master/storage/slack-demo.PNG "Slack Demo"
 
 SlackClone Name Pending is a imitation of the popular messaging webapp, Slack. 
@@ -29,6 +30,7 @@ The main features that were implemented were chatting and the creation of channe
 Initially, before creating channels, the app functioned as one giant workspace. Message loading was done everytime someone subscribed to the channel. This would render all the previous messages for the channel as soon as someone joined. One issue with this was that a user that was currently on the site would not be able to see a new user's credentials if they signed up while the first user was still signed in. 
 
 ![alt text][missinguser]
+
 [missinguser]: https://github.com/saphknight/SlackClone-Name-Pending/blob/master/storage/missing-user.png "Missing User Info"
 
 
