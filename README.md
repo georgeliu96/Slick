@@ -114,3 +114,5 @@ handleSubmit(e) {
 * Currently, creating a DM just creates a new one every time, regardless of whether or not an existing DM with the same users exists or not
 * Add notifications for when a message is sent to a channel you are subscribed to
 * Creating a channel adds all users in the workspace to that channel 
+* Incorporate AWS and allow users to upload their own profile pictures 
+* Editting and deleting messages and channels
