@@ -27,7 +27,38 @@ SlackClone makes use of a Ruby on Rails backend, and a React-Redux frontend. The
 The main features that were implemented were chatting and the creation of channels. 
 
 ### Messages
-Initially, before creating channels, the app functioned as one giant workspace. Message loading was done everytime someone subscribed to the channel. This would render all the previous messages for the channel as soon as someone joined. One issue with this was that a user that was currently on the site would not be able to see a new user's credentials if they signed up while the first user was still signed in. 
+
+Initially, when first making messages, the only information passed in was the message body. This meant that it was just a chatroom of text. However, in order to imitate Slack, the username and the user's profile picture also needed to be shown. In order to resolve this, the user id was passed in with the message body. This user id was then parsed into user information through the state passed down to props in our chatroom component. 
+
+```javascript
+switch (data.type) {
+    case "message": {
+        this.setState({
+            messages: this.state.messages.concat(data.message[0]),
+            users: this.state.users.concat(data.message[1])
+        });
+        break;
+    }
+    case "messages": {
+        this.setState({messages: data.messages[0], users: data.messages[1]});
+        break;
+    }
+}
+```
+```HTML
+ <li key={index} className="message">
+    <div className="message-left">
+        <img src={this.props.users[this.state.users[index]] ? this.props.users[this.state.users[index]].user_image_url : ""} className="profile-pic"></img>
+    </div>
+    <div className="message-right">
+        <b className="chat-user">{this.props.users[this.state.users[index]] ? this.props.users[this.state.users[index]].username : ""}</b>    
+        <br></br>
+        <p className="message-body">{message}</p>
+    </div>
+</li>
+
+```
+Before creating channels, the app functioned as one giant workspace. Message loading was done everytime someone subscribed to the channel. This would render all the previous messages for the channel as soon as someone joined. One issue with this was that a user that was currently on the site would not be able to see a new user's credentials if they signed up while the first user was still signed in. 
 
 ![alt text][missinguser]
 
@@ -44,13 +75,13 @@ if (!(this.props.users[this.state.users[this.state.users.length - 1]])) {
 }
 ```
 
+
+
 ### Channels 
 Upon creating, channels, the backend channel needed to be changed such that each individual user channel would load seperate messages. This was achieved by adding the identifier of the channel id to our channels. Without this check, all messages would still be applied to the same channel. 
 
-```javascript
-  def subscribed
-    # stream_from "some_channel"
-    
+```ruby
+  def subscribed    
     channel = Channel.find_by(id: params[:id])
     stream_for channel
     load(params[:id])
@@ -77,3 +108,9 @@ handleSubmit(e) {
     })
 }
 ```
+
+## Todo List 
+
+* Currently, creating a DM just creates a new one every time, regardless of whether or not an existing DM with the same users exists or not
+* Add notifications for when a message is sent to a channel you are subscribed to
+* Creating a channel adds all users in the workspace to that channel 
