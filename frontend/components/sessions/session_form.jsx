@@ -7,6 +7,8 @@ class SessionForm extends React.Component {
         super(props);
         this.state = {
             email: "",
+            username: "",
+            password: "",
             first_render: true,
             failed: false,
         };
@@ -28,6 +30,11 @@ class SessionForm extends React.Component {
 
     demoUser(e) {
         e.preventDefault();
+        this.setState({
+            username: "",
+            password: "",
+            email: ""
+        }); 
         new Typed(".form-input-username", {
             strings: ['demo'],
             typeSpeed: 70,
@@ -80,9 +87,9 @@ class SessionForm extends React.Component {
                         <div className="inner-form-container">
                             <p className="session-form-desc">Enter your <b>username</b>, <b>password</b>, and <b>email</b>.</p>
                             <form className="session-form">
-                                <input type="text" onChange={this.handleInput("username")} className="session-form-input form-input-username" placeholder="username"/>
+                                <input type="text" onChange={this.handleInput("username")} value={this.state.username} className="session-form-input form-input-username" placeholder="username"/>
                                 <br></br>
-                                <input type="password" onChange={this.handleInput("password")} className="session-form-input form-input-password" placeholder="password"/>
+                                <input type="password" onChange={this.handleInput("password")} value={this.state.password} className="session-form-input form-input-password" placeholder="password"/>
                                 <br></br>
                                 <input type="text" onChange={this.handleInput("email")} value={this.state.email} className="session-form-input form-input-email" placeholder="you@example.com"/>
                                 <br></br>
