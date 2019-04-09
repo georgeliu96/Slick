@@ -16,8 +16,13 @@ class MessageForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        App.cable.subscriptions.subscriptions[0].speak({ message: this.state.body, id: this.props.currentUser.id});
+        App.cable.subscriptions.subscriptions.forEach(sub => {
+            if (sub.speak) {
+                sub.speak({ message: this.state.body, id: this.props.currentUser.id});  
+            }
+        })        
         this.setState({body: ""});
+        setTimeout(this.props.handleMsg, 100);
     }
 
     render() { 

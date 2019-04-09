@@ -151,20 +151,53 @@
     padding-right: auto;
     padding-bottom: 2px;
     padding-left: 15px;
+    position: relative;
+}
+
+.new-msg-count {
+    position: absolute;
+    font-size: 16px;
+    font-weight: 700;
+    right: 20px;
+    color: white;    
+    padding: 0 9px;
+    border-radius: 16px;
+    background: #CD2553;
 }
 
 .channel-name {
+    color: rgb(178,159,179);
+    font-weight: 400;
+}
+
+.channel-name.bolden, .dm-label.bolden {
     color: white;
+    font-weight: 700;
 }
 
 .channel:hover {
     background-color: #320c33;
 }
 
-.channel:focus {
+.channel.currentChannel:hover, .dm.currentChannel:hover {
+    background-color: #1164A3;
+}
+
+.currentChannel {
     background-color: #1164A3;
     outline: 0;
     color: white;
+}
+
+.channel:focus, .dm:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none;
+}
+
+.currentChannel > .channel-name, .currentChannel > .dm-label {
+    color: white;
+    font-weight: 700;
 }
 
 .add-channel {

@@ -1,6 +1,6 @@
 import React from 'react';
 import SplashFooter from './splash_footer';
-import Typed from 'typed.js'
+import Typed from 'typed.js';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -41,6 +41,7 @@ class SessionForm extends React.Component {
             strings: ['^2000demo@email.com'],
             typeSpeed: 70
         })
+
         setTimeout(() => {
             this.props.demoLogin({username: "demo", password: "password", email: "demo@email.com"})
                 .then(()=>{

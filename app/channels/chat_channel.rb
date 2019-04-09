@@ -1,7 +1,5 @@
 class ChatChannel < ApplicationCable::Channel
-  def subscribed
-    # stream_from "some_channel"
-    
+  def subscribed    
     channel = Channel.find_by(id: params[:id])
     stream_for channel
     load(params[:id])
@@ -12,7 +10,11 @@ class ChatChannel < ApplicationCable::Channel
     message = Message.create(body: data['message'], channel_id: channel.id, user_id: data['id'])
     socket = {message: [message.body, data['id']], type: 'message'}
     ChatChannel.broadcast_to(channel, socket)
-    # load(params[:id])
+    ChannelNotificationsChannel.broadcast_to(
+      "notifications",
+      channel: channel.id,
+      message: message.id
+    )  
   end 
 
   def load(id)

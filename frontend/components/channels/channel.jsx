@@ -10,8 +10,9 @@ class Channel extends React.Component {
 
 
     componentDidMount() {
-        this.props.fetchUsers();
-        this.subscribe();
+        this.props.fetchUsers().then(() => {
+            this.subscribe();
+        });
     }
 
     subscribe () {
@@ -42,9 +43,12 @@ class Channel extends React.Component {
 
     componentDidUpdate(prevProps) {
         document.getElementById('bottom').scrollIntoView(false);
-        
         if (prevProps.currentChannel.id !== this.props.currentChannel.id) {
-            App.cable.subscriptions.subscriptions[0].unsub(); 
+            App.cable.subscriptions.subscriptions.forEach(sub => {
+                if (sub.unsub) {
+                    sub.unsub()
+                }
+            }); 
             this.subscribe();
         }
         if (!(this.props.users[this.state.users[this.state.users.length - 1]])) {
@@ -99,7 +103,7 @@ class Channel extends React.Component {
                 </div>
                 <div className="message-list-div"><ul className="message-list">{messageList}<div id='bottom' /></ul>
                 
-                <MessageForm/>
+                <MessageForm handleMsg={this.props.handleMsg}/>
                 </div>
             </div>
         )
