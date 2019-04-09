@@ -100,14 +100,12 @@ class Sidebar extends React.Component {
     handleMsg(id) {
         const newChannels = this.state.channels;
         const newMessages = this.state.messages; 
-        debugger
         for(let i = newChannels.length - 1; i >=0; i--) {
             if(newChannels[i] === id) {
                 newChannels.splice(i, 1);
                 newMessages.splice(i, 1);
             }
         }
-        debugger 
         this.setState({
             channels: newChannels,
             messages: newMessages
