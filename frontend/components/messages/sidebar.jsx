@@ -102,7 +102,6 @@ class Sidebar extends React.Component {
         const newMessages = this.state.messages; 
         newChannels.splice((newChannels.length - 1), 1);
         newMessages.splice((newMessages.length - 1), 1);
-        debugger 
         this.setState({
             channels: newChannels,
             messages: newMessages
