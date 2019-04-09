@@ -97,11 +97,17 @@ class Sidebar extends React.Component {
         })
     }
 
-    handleMsg() {
+    handleMsg(id) {
         const newChannels = this.state.channels;
         const newMessages = this.state.messages; 
-        newChannels.splice((newChannels.length - 1), 1);
-        newMessages.splice((newMessages.length - 1), 1);
+        debugger
+        for(let i = newChannels.length - 1; i >=0; i--) {
+            if(newChannels[i] === id) {
+                newChannels.splice(i, 1);
+                newMessages.splice(i, 1);
+            }
+        }
+        debugger 
         this.setState({
             channels: newChannels,
             messages: newMessages
@@ -125,7 +131,7 @@ class Sidebar extends React.Component {
                 return   <Link to={`/messages/${channel.id}`} key={channel.id} className={`channel-Link`} onClick={() => this.handleChannel(index)}>
                 <li className={`channel ${(this.state.currentChannel.id === channel.id) ? "currentChannel" : ""} ${channel.id}`} tabIndex={channel.id}>
                         # <b className={`channel-name ${(this.state.channels.includes(channel.id)) ? "bolden" : ""}`}>{channel.name}</b>
-                        {this.state.channels.includes(channel.id) ? (
+                        {(this.state.channels.includes(channel.id) && (channel.id !== this.state.currentChannel.id)) ? (
                         <b className={`new-msg-count`}>
                             {(this.countChannels(this.state.channels, channel.id) < 10) ? (this.countChannels(this.state.channels, channel.id)) : "9+"}
                         </b>

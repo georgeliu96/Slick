@@ -22,7 +22,6 @@ class MessageForm extends React.Component {
             }
         })        
         this.setState({body: ""});
-        setTimeout(this.props.handleMsg, 100);
     }
 
     render() { 
