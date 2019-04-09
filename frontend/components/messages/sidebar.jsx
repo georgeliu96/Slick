@@ -22,6 +22,7 @@ class Sidebar extends React.Component {
         this.handleLogout = this.handleLogout.bind(this);
         this.handleHome = this.handleHome.bind(this);
         this.handleMsg = this.handleMsg.bind(this);
+        this.handleCreate = this.handleCreate.bind(this);
     }
 
     componentDidMount() {
@@ -76,6 +77,12 @@ class Sidebar extends React.Component {
 
     handleHome() {
         this.props.history.push('/')
+    }
+
+    handleCreate(channel) {
+        this.setState({
+            currentChannel: channel
+        })
     }
 
     handleChannel(index) {
@@ -147,15 +154,22 @@ class Sidebar extends React.Component {
                     return <Link to={`/messages/${channel.id}`} key={channel.id} className="channel-Link" onClick={() => this.handleChannel(index)}>
                     <li className={`dm ${channel.id} ${(this.state.currentChannel.id === channel.id) ? "currentChannel" : ""}`}>
                             <p className={`dm-label ${(this.state.channels.includes(channel.id)) ? "bolden" : ""}`}><i className="fas fa-circle"></i>{new_name}</p>
-                                <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id)}></i>
+                            {(this.state.channels.includes(channel.id) && (channel.id !== this.state.currentChannel.id)) ? (
+                                <b className={`new-msg-count`}>
+                                    {(this.countChannels(this.state.channels, channel.id) < 10) ? (this.countChannels(this.state.channels, channel.id)) : "9+"}
+                                </b>
+                                ) : (
+                                    <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id)}></i>
+                                ) }
+                                
                         </li>
                     </Link>
                 }
             }
         })
         return <>
-        <NewChannelContainer hidden={this.state.hidden} hideChannel={this.hideChannel}/>
-        <NewDMContainer hidden={this.state.hiddenDM} hideDM={this.hideDM}/>
+        <NewChannelContainer hidden={this.state.hidden} hideChannel={this.hideChannel} handleCreate={this.handleCreate}/>
+        <NewDMContainer hidden={this.state.hiddenDM} hideDM={this.hideDM} handleCreate={this.handleCreate}/>
         <div className="chatroom-window">
             <div className="sidebar">
                 <div className="hidden-width"></div>

@@ -10,8 +10,9 @@ class NewChannelForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createChannel(this.state).then(() => {
+        this.props.createChannel(this.state).then(({ channel }) => { 
             this.props.hideChannel();
+            this.props.handleCreate(channel);
         })
         this.setState({
             name: "",
