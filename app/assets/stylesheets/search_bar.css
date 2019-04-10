@@ -1,0 +1,83 @@
+.search-bar-div {
+    position: absolute; 
+    top: 2vh;
+    left: 60vw;
+}
+
+.search-bar-input {
+    border-radius: .35rem;
+    border: 1px solid #868686;
+    padding: 10px;
+    padding-left: 30px;
+    width: 10vw;
+    box-sizing: border-box;
+}
+
+.search-bar-input:hover::placeholder {
+    color: black;
+}
+
+.search-bar-div > .fa-search {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.search-bar-input:focus {
+    outline: 0;
+    border: 1px solid black;
+}
+
+.search-users-list {
+    margin: 0;
+    padding: 0;
+    color: #1d1d1d;
+    list-style: none;
+}
+
+.search-users-list-div {
+    display: none;
+}
+
+.search-bar-input:focus + .search-users-list-div {
+    display: block;
+}
+
+
+.search-user {
+    display: flex;
+    padding: 5px;
+    width: 10vw;
+    margin-right: 0;
+    border: 1px solid #868686;
+    background: white;
+    box-sizing: border-box;
+}
+
+.search-user:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.search-user:first-child{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.search-user:hover {
+    cursor: pointer;
+}
+
+.search-user-username {
+    margin: 0;
+    padding: 0;
+    max-width: calc(100% - 30px);
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+.search-user-img {
+    width: 20px;
+    height: 20px;
+    padding-right: 10px;
+}

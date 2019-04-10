@@ -16,7 +16,6 @@ const msp = state => {
 }}
 
 const mdp = dispatch => ({
-    fetchUsers: () => dispatch(fetchUsers()),
     createChannel: channel => dispatch(createChannel(channel)),
     deleteChannel: id => dispatch(deleteChannel(id)),
     logout: () => dispatch(logout())

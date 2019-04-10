@@ -26,9 +26,7 @@ class Sidebar extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers().then(() => {
-            this.subToNotifications();
-        });
+        this.subToNotifications();
     }
 
     hideChannel() {
@@ -159,7 +157,10 @@ class Sidebar extends React.Component {
                                     {(this.countChannels(this.state.channels, channel.id) < 10) ? (this.countChannels(this.state.channels, channel.id)) : "9+"}
                                 </b>
                                 ) : (
-                                    <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id)}></i>
+                                    <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id).then(() => {
+                                        this.props.history.push(`/messages/${this.props.channels[0].id}`)
+                                        this.setState({currentChannel: this.props.channels[0]})
+                                    })}></i>
                                 ) }
                                 
                         </li>
@@ -185,43 +186,45 @@ class Sidebar extends React.Component {
                     <button onClick={this.handleHome} className="home-button">Home Page</button>
                     <button onClick={this.handleLogout} className="logout-button">Log Out</button>
                 </div>
-                <div className="sidebar-search sidebar-div">
-                    <div>
-                    <i className="fas fa-search"></i>
-                    Jump to...</div>
-                    <p className="hidden-search-sidebar">{keytype} + K</p>
-                </div>
-                <div className="all-channels sidebar-div" tabIndex='0'>
-                    <i className="far fa-comment-dots"></i>All Threads
-                </div>
-                <div className="channels-list sidebar-div">
-                    <p className="channels-list-header">
-                        Channels
-                    </p>
-                    <ul className="channels-list-index">
-                        {channels}
-                    </ul>
-                </div>
-                <div className="add-channel sidebar-div" onClick={() => this.setState({hidden: false})}>
-                    <i className="fas fa-plus"></i> Add a channel 
-                </div>
-                <div className="dms-list sidebar-div">
-                    <div className="dms-list-header">
-                        <p className="dms-list-label">Direct Messages</p> 
-                        <i className="fas fa-plus-circle" onClick={() => this.setState({hiddenDM: false})}></i>
+                <div className="sidebar-scroll">
+                    <div className="sidebar-search sidebar-div">
+                        <div>
+                        <i className="fas fa-search"></i>
+                        Jump to...</div>
+                        <p className="hidden-search-sidebar">{keytype} + K</p>
                     </div>
-                    <ul className="dms-list-index">
-                        {direct_messages}                        
-                    </ul>
-                </div>
-                <div className="apps-list sidebar-div">
-                    <p className="apps-list-header">
-                        Apps
-                    </p>
-                    <i className="fas fa-plus-circle"></i>
+                    <div className="all-channels sidebar-div" tabIndex='0'>
+                        <i className="far fa-comment-dots"></i>All Threads
+                    </div>
+                    <div className="channels-list sidebar-div">
+                        <p className="channels-list-header">
+                            Channels
+                        </p>
+                        <ul className="channels-list-index">
+                            {channels}
+                        </ul>
+                    </div>
+                    <div className="add-channel sidebar-div" onClick={() => this.setState({hidden: false})}>
+                        <i className="fas fa-plus"></i> Add a channel 
+                    </div>
+                    <div className="dms-list sidebar-div">
+                        <div className="dms-list-header">
+                            <p className="dms-list-label">Direct Messages</p> 
+                            <i className="fas fa-plus-circle" onClick={() => this.setState({hiddenDM: false})}></i>
+                        </div>
+                        <ul className="dms-list-index">
+                            {direct_messages}                        
+                        </ul>
+                    </div>
+                    <div className="apps-list sidebar-div">
+                        <p className="apps-list-header">
+                            Apps
+                        </p>
+                        <i className="fas fa-plus-circle"></i>
+                    </div>
                 </div>
             </div>
-            <ChannelContainer currentChannel={this.state.currentChannel} handleMsg={this.handleMsg}/>
+            <ChannelContainer currentChannel={this.state.currentChannel} handleMsg={this.handleMsg} handleCreate={this.handleCreate}/>
         </div>
         </>
     }

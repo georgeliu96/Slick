@@ -1,6 +1,7 @@
 import React from 'react';
 import MessageForm from '../messages/message_form';
 import MessageFooter from '../messages/message_footer';
+import SearchBarContainer from '../channels/search_bar_container';
 
 class Channel extends React.Component {
     constructor(props) {
@@ -10,9 +11,7 @@ class Channel extends React.Component {
 
 
     componentDidMount() {
-        this.props.fetchUsers().then(() => {
-            this.subscribe();
-        });
+        this.subscribe();
     }
 
     subscribe () {
@@ -102,6 +101,7 @@ class Channel extends React.Component {
                         <i className="fas fa-map-pin"><b> 2</b></i>
                         <i className="far fa-edit"><b> {this.props.currentChannel ? this.props.currentChannel.description || "Add a topic" : ""}</b></i>
                     </div>
+                    <SearchBarContainer handleCreate={this.props.handleCreate} />
                     <MessageFooter/>
                 </div>
                 <div className="message-list-div"><ul className="message-list">{messageList}<div id='bottom' /></ul>

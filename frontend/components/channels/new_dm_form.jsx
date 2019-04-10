@@ -35,6 +35,7 @@ class NewDMForm extends React.Component {
         newState.description = `Direct message between ${users.length} people`     
         this.props.createDM(newState).then(({ channel }) => {
             this.props.hideDM();
+            this.props.history.push(`/messages/${channel.id}`);
             this.props.handleCreate(channel);
         });
         this.setState({

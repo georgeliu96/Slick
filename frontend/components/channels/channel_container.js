@@ -11,7 +11,6 @@ const msp = (state, ownProps) => {
 }}
 
 const mdp = dispatch => ({
-    fetchUsers: () => dispatch(fetchUsers()),
     fetchUser: id => dispatch(fetchUser(id))
 })
 

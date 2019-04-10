@@ -12,6 +12,7 @@ class NewChannelForm extends React.Component {
         e.preventDefault();
         this.props.createChannel(this.state).then(({ channel }) => { 
             this.props.hideChannel();
+            this.props.history.push(`/messages/${channel.id}`);
             this.props.handleCreate(channel);
         })
         this.setState({

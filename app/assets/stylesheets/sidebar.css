@@ -333,6 +333,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
+    padding-bottom: 1rem;
 }
 
 .sidebar > .hidden-form {
@@ -377,3 +378,27 @@
     outline: 0;
 }
 
+.sidebar-scroll {
+    overflow: scroll;
+    max-height: calc(100vh - 125px);
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.sidebar-scroll:hover::-webkit-scrollbar-thumb {
+    transition: background-color 10s ease 1s;
+    -webkit-transition: background-color 10s ease 1s;
+    -moz-transition: background-color 10s ease 1s;
+    background-color: rgb(138, 102, 138); 
+}
+
+.sidebar-scroll::-webkit-scrollbar-corner {
+    background: transparent;
+}
