@@ -294,6 +294,7 @@
 
 .dm-label {
     margin: 0;
+    max-width: 170px;
 }
 
 .dm-label > .fa-circle {
@@ -385,6 +386,8 @@
 
 .sidebar-scroll::-webkit-scrollbar {
     width: 8px;
+    position: absolute;
+    right: 0;
 }
 
 .sidebar-scroll::-webkit-scrollbar-thumb {

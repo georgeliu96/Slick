@@ -10,7 +10,7 @@ class SearchBar extends React.Component {
             show: false
         }
         this.handleFocus = this.handleFocus.bind(this);
-        this.handleBlur = this.handleBlur.bind(this);
+        // this.handleBlur = this.handleBlur.bind(this);
     }
 
     componentDidMount() {
@@ -53,11 +53,17 @@ class SearchBar extends React.Component {
         });
     }
 
-    handleBlur() {
-        
-    }
+    // handleBlur() {
+    //     return (e) => {
+
+    //     setTimeout(this.setState({
+    //         show: false
+    //     }), 5000);
+    //     }
+    // }
 
     handleClick(user) {
+        return (e) => {
         this.props.createDM({
             users: [user, this.props.currentUser],
             name: user.username + ", " + this.props.currentUser.username,
@@ -66,16 +72,18 @@ class SearchBar extends React.Component {
             this.props.history.push(`/messages/${channel.id}`);
             this.props.handleCreate(channel);
             this.setState({
-                substr: ""
+                substr: "",
+                show: false
             })
         });
+        }
     }
 
     render() {
         const users = (this.state.matches) ? (
             this.state.matches.map((user, index) => {
                 if(index < 5 && user && user !== this.props.currentUser) {
-                    return (<li className="search-user" key={user.id} onClick={() => this.handleClick(user)}>
+                    return (<li className="search-user" key={user.id} onClick={this.handleClick(user)}>
                         <img className="search-user-img" src={user.user_image_url}></img><p className="search-user-username">{user.username}</p>
                     </li>)
                 }
@@ -90,7 +98,8 @@ class SearchBar extends React.Component {
                     value={this.state.substr}
                     placeholder="Search"
                     onFocus={this.handleFocus}
-                    onBlur={this.handleBlur}/>
+                    />
+                    {/* onBlur={this.handleBlur} */}
                 <div className="search-users-list-div">
                     <ul className="search-users-list">
                         {(this.state.substr && this.state.show) ? users : <></>}
