@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchUsers } from '../../actions/user_actions';
 import SearchBar from './search_bar';
 import { createDM } from '../../actions/channel_actions';
+import { withRouter } from 'react-router-dom';
 
 const msp = state => ({
     users: Object.values(state.entities.users),
@@ -13,4 +14,4 @@ const mdp = dispatch => ({
     createDM: (channel) => dispatch(createDM(channel))
 });
 
-export default connect(msp, mdp)(SearchBar);
+export default withRouter(connect(msp, mdp)(SearchBar));

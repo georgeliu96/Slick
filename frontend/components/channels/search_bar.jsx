@@ -6,8 +6,11 @@ class SearchBar extends React.Component {
         super(props);
         this.state = {
             matches: [],
-            substr: ""
+            substr: "",
+            show: false
         }
+        this.handleFocus = this.handleFocus.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
     }
 
     componentDidMount() {
@@ -44,15 +47,27 @@ class SearchBar extends React.Component {
         }
     }
 
+    handleFocus() {
+        this.setState({
+            show: true
+        });
+    }
+
+    handleBlur() {
+        
+    }
+
     handleClick(user) {
-        debugger 
         this.props.createDM({
             users: [user, this.props.currentUser],
             name: user.username + ", " + this.props.currentUser.username,
             description: `Direct message between 2 people`
         }).then(({ channel }) => {
             this.props.history.push(`/messages/${channel.id}`);
-            this.props.handleCreate(channel)
+            this.props.handleCreate(channel);
+            this.setState({
+                substr: ""
+            })
         });
     }
 
@@ -73,10 +88,12 @@ class SearchBar extends React.Component {
                     className="search-bar-input"
                     onChange={this.handleInput()}
                     value={this.state.substr}
-                    placeholder="Search"/>
+                    placeholder="Search"
+                    onFocus={this.handleFocus}
+                    onBlur={this.handleBlur}/>
                 <div className="search-users-list-div">
                     <ul className="search-users-list">
-                        {this.state.substr ? users : <></>}
+                        {(this.state.substr && this.state.show) ? users : <></>}
                     </ul>
                 </div>
             </div>
