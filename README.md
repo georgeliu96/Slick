@@ -1,5 +1,7 @@
 # Production Readme
 
+[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
+
 ## SlackClone Name Pending
 
 Live Site: [SlackClone Name-Pending](https://slack-clone-aa.herokuapp.com "Slack Clone")
@@ -19,8 +21,6 @@ After cloning, make sure to run the following commands.
 * `bundle exec rails db:setup` 
 
 ## Features
-
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)
 
 SlackClone makes use of a Ruby on Rails backend, and a React-Redux frontend. The main feature of chatting is done through action-cables in Rails. 
 
