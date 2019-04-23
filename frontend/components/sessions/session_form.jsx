@@ -77,7 +77,7 @@ class SessionForm extends React.Component {
         (<div className="errors">
                 {this.props.errors.map((error, index) => (<><i class="fas fa-exclamation-triangle"></i><li key={index}>{error.responseJSON[0]}</li></>))}
         </div>) : (<></>)
-        const header = (this.props.formType === "Sign up") ? ("Sign up for Slack Clone") : ("Log in to Slack Clone");
+        const header = (this.props.formType === "Sign up") ? ("Sign up for Slick") : ("Log in to Slick");
         return (
             <div className="background">
                 <div className="form-container">
