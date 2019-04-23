@@ -63,7 +63,7 @@ class SplashPage extends React.Component {
                     Imagine what you'll accomplish together
                 </h1>
                 <div className="app-desc">
-                    Slick is a collaboration hub for work, no matter what work you do. It’s a place where conversations happen, decisions are made, and information is always at your fingertips. With Slack, your team is better connected.
+                    Slick is a collaboration hub for work, no matter what work you do. It’s a place where conversations happen, decisions are made, and information is always at your fingertips. With Slick, your team is better connected.
                 </div>
                 <form className="splash-form" onSubmit={this.handleSubmit}>
                     <input type="text" className="splash-email" placeholder="Email address" required onChange={this.handleInput("email")}/> 
