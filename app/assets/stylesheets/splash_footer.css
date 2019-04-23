@@ -9,6 +9,7 @@
     justify-content: space-around; 
     align-items: center;
     z-index: 100000000;
+    background: white;
 }
 
 .footer-link {
