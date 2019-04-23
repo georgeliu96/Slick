@@ -4,15 +4,15 @@ Technologies Used: React-Redux, Action-cables and subscriptions, Websockets
 
 [![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/made-with-ruby.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com)  [![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)
 
-## SlackClone Name Pending
+## Slick
 
-Live Site: [SlackClone Name-Pending](https://slack-clone-aa.herokuapp.com "Slack Clone")
+Live Site: [Slick](https://slack-clone-aa.herokuapp.com "Slick")
 
 ![alt text][slackdemo]
 
-[slackdemo]: https://github.com/saphknight/SlackClone-Name-Pending/blob/master/storage/slack-demo.PNG "Slack Demo"
+[slackdemo]: https://github.com/saphknight/Slick/blob/master/storage/slack-demo.PNG "Slack Demo"
 
-SlackClone Name Pending is a imitation of the popular messaging webapp, Slack. 
+Slick is a imitation of the popular messaging webapp, Slack. 
 
 ## Installation
 
@@ -24,7 +24,7 @@ After cloning, make sure to run the following commands.
 
 ## Features
 
-SlackClone makes use of a Ruby on Rails backend, and a React-Redux frontend. The main feature of chatting is done through action-cables in Rails. 
+Slick makes use of a Ruby on Rails backend, and a React-Redux frontend. The main feature of chatting is done through action-cables in Rails. 
 
 The main features that were implemented were chatting and the creation of channels. 
 
@@ -64,7 +64,7 @@ Before creating channels, the app functioned as one giant workspace. Message loa
 
 ![alt text][missinguser]
 
-[missinguser]: https://github.com/saphknight/SlackClone-Name-Pending/blob/master/storage/missing-user.png "Missing User Info"
+[missinguser]: https://github.com/saphknight/Slick/blob/master/storage/missing-user.png "Missing User Info"
 
 
 This was resolved by checking the current state and fetching the last message's owner-credentials if that user could not be found. 
