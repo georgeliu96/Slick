@@ -11,10 +11,9 @@ const MessageFooter = () => {
             <img className="linkedin-icon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Linkedin.svg/1024px-Linkedin.svg.png"/>
             <b className="linkedin-label message-footer-label">LinkedIn</b>
         </a>   
-        <a href="https://saphknight.github.io/" className="site-link footer-link">
-            <img src="https://www.freeiconspng.com/uploads/profile-icon-png-profiles-13.png" className="personal-icon"/>
+        <a href="https://saphknight.github.io/" className="site-link message-footer-link">
+            <img src={window.personal} className="personal-icon"/>
             <b className="site-label message-footer-label">Personal Site</b></a>
-
     </div>
     )
 }
