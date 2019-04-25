@@ -59,7 +59,7 @@ class User < ApplicationRecord
     end 
 
     def ensure_image 
-        self.user_image_url ||= "https://ca.slack-edge.com/T03GU501J-UFA742WTH-g1380d400f3d-512"
+        self.user_image_url ||= ["https://ca.slack-edge.com/T03GU501J-UECK4LALA-g6e8af42e43d-48", "https://ca.slack-edge.com/T03GU501J-UE2D0NGQJ-gfe3d546a36b-48", "https://ca.slack-edge.com/T03GU501J-UFF3MNFGC-gce0e4fb698a-48"].sample
     end 
     
     def self.generate_session_token 
