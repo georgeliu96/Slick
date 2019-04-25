@@ -19,8 +19,9 @@ class ChatChannel < ApplicationCable::Channel
 
   def load(id)
     channel = Channel.includes(:messages).find_by(id: params[:id])
-    messages = channel.messages.collect(&:body)
-    users = channel.messages.collect(&:user_id)
+    messages = channel.messages.order(:created_at)
+    users = messages.collect(&:user_id)
+    messages = messages.collect(&:body)
     socket = { messages: [messages, users], type: 'messages' }
     ChatChannel.broadcast_to(channel, socket)
   end
