@@ -1,7 +1,7 @@
 .splash-footer {
     position: fixed;
     left: 0;
-    bottom: 0;
+    bottom: 0rem;
     height: 4rem;
     width: 100vw;
     border-top: 2px solid lightgray;
@@ -19,8 +19,7 @@
 }
 
 .footer-link:hover {
-    background: lightgray;
-    border-radius: 5px;
+    border-radius: 50%;
 }
 
 .splash-footer * {
@@ -30,15 +29,46 @@
     font-size: 30px;
 }
 
-.github-icon {
+.splash-icon {
     height: 3rem;
     width: 3rem;
+    transition: .5s ease; 
+}
+
+.splash-container{
+    position: relative;
+}
+
+.splash-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    z-index: 1000;
+}
+
+.splash-container:hover .splash-overlay{
+    opacity: 1;
+}
+
+.splash-container:hover .splash-icon{
+    opacity: 0.25;
 }
 
 .footer-label {
-    font-weight: 700;
-    padding-top: 5px;
-    padding-left: 10px;
+    font-size: 25px;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .linkedin-icon {
