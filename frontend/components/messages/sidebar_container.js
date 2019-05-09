@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import Sidebar from './sidebar';
 import { withRouter } from 'react-router-dom';
-import { fetchUsers } from '../../actions/user_actions';
 import { createChannel, deleteChannel } from '../../actions/channel_actions';
 import { logout } from '../../actions/session_actions';
 

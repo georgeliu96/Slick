@@ -47,12 +47,6 @@ class Sidebar extends React.Component {
         })
     }
 
-    // App.cable.subscriptions.create({
-    //     channel: "ChatChannel",
-    //     id: this.props.currentChannel.id 
-    // }, {
-    //     received: data => {
-
     subToNotifications() {
         App.cable.subscriptions.create({
             channel: "ChannelNotificationsChannel",
