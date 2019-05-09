@@ -57,7 +57,8 @@ class Sidebar extends React.Component {
                     messages: this.state.messages.concat(data.message),
                     channels: this.state.channels.concat(data.channel)
                 })
-            }
+            },
+            unsub: function() {App.cable.subscriptions.remove(this);}
         })
     }
 

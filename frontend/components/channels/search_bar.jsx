@@ -10,7 +10,6 @@ class SearchBar extends React.Component {
             show: false
         }
         this.handleFocus = this.handleFocus.bind(this);
-        // this.handleBlur = this.handleBlur.bind(this);
     }
 
     componentDidMount() {
@@ -19,6 +18,10 @@ class SearchBar extends React.Component {
                 matches: this.props.users
             })
         })
+    }
+
+    componentWillUnmount() {
+        App.cable.subscriptions.subscriptions.forEach(sub => sub.unsub())
     }
 
     updateMatches() {
@@ -52,15 +55,6 @@ class SearchBar extends React.Component {
             show: true
         });
     }
-
-    // handleBlur() {
-    //     return (e) => {
-
-    //     setTimeout(this.setState({
-    //         show: false
-    //     }), 5000);
-    //     }
-    // }
 
     handleClick(user) {
         return (e) => {

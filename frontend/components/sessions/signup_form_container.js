@@ -10,7 +10,6 @@ const msp = (state) => ({
 const mdp = dispatch => ({
     action: user => dispatch(signup(user)),
     demoLogin: user => dispatch(login(user))
-    //TODO: fetchuser and get a default channel for that user 
 });
 
 export default connect(msp, mdp)(SessionForm);
