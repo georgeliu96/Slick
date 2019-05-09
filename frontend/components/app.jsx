@@ -13,7 +13,7 @@ const App = () => {
     <div>
         <header>
             <Switch>
-                <Route path="/messages" component={ChatRoom} />
+                <ProtectedRoute path="/messages" component={ChatRoom} />
                 <Route path="/messages/:channelId" component={ChatRoom} />
                 <Route path="/" component={NavBar} />
             </Switch>
