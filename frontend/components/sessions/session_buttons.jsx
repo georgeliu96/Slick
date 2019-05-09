@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 
 class SessionButtons extends React.Component {
 
-    componentDidMount() {
-        this.props.fetchChannels();
-    }
-
     render() {
         return (this.props.currentUser) ? (
             <>
