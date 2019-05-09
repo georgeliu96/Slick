@@ -14,7 +14,7 @@ const App = () => {
         <header>
             <Switch>
                 <ProtectedRoute path="/messages" component={ChatRoom} />
-                <Route path="/messages/:channelId" component={ChatRoom} />
+                <ProtectedRoute path="/messages/:channelId" component={ChatRoom} />
                 <Route path="/" component={NavBar} />
             </Switch>
         </header>
