@@ -50,7 +50,6 @@ class MessageForm extends React.Component {
 }
 
 const msp = state => ({
-    // TODO: will use this to show username for each channel when entities is created
     currentUser: state.entities.users[state.session.id]
 })
 

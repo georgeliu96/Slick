@@ -8,6 +8,7 @@ const msp = state => (
     {
         currentUser: state.entities.users[state.session.id],
         users: Object.values(state.entities.users),
+        channels: Object.values(state.entities.channels),
         channel: {
             name: "",
             description: "",

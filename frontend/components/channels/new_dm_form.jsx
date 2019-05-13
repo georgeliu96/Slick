@@ -26,23 +26,57 @@ class NewDMForm extends React.Component {
         let newState = {}
         const users = this.state.users;
         users.push(this.props.currentUser)
-        const names = users.map(user => (
-            user.username
-        ))
-        const name = names.join(', ')
-        newState.users = users;
-        newState.name = name;
-        newState.description = `Direct message between ${users.length} people`     
-        this.props.createDM(newState).then(({ channel }) => {
-            this.props.hideDM();
-            this.props.history.push(`/messages/${channel.id}`);
-            this.props.handleCreate(channel);
-        });
-        this.setState({
-            users: [],
-            name: "",
-            description: ""
+        const ids = users.map(user => user.id);
+        ids.sort((a,b) => a - b);
+        if (!this.existingDM(ids)) {
+            debugger 
+            const names = users.map(user => (
+                user.username
+            ))
+            const name = names.join(', ')
+            newState.users = users;
+            newState.name = name;
+            newState.description = `Direct message between ${users.length} people`     
+            this.props.createDM(newState).then(({ channel }) => {
+                this.props.hideDM();
+                this.props.history.push(`/messages/${channel.id}`);
+                this.props.handleCreate(channel);
+            });
+            this.setState({
+                users: [],
+                name: "",
+                description: ""
+            })
+        }
+    }
+
+    existingDM(ids) {
+        this.props.channels.forEach(channel => {
+            if(channel.direct_message) {
+                const channel_ids = channel.user_ids.sort((a,b) => a - b);
+                if (ids.length === channel_ids.length) {
+                    let existing = true;
+                    for(let i = 0; i < ids.length; i++) {
+                        if(ids[i] !== channel_ids[i]) {
+                            existing = false;
+                        }
+                    }
+                    if (existing) {
+                        this.props.hideDM();
+                        this.props.history.push(`messages/${channel.id}`);
+                        this.props.handleCreate(channel);
+                        this.setState({
+                            users: [],
+                            name: "",
+                            description: ""
+                        });
+                        debugger 
+                        return true;
+                    }
+                }
+            }
         })
+        return false;
     }
 
     render() {
