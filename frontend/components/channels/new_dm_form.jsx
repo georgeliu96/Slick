@@ -29,7 +29,6 @@ class NewDMForm extends React.Component {
         const ids = users.map(user => user.id);
         ids.sort((a,b) => a - b);
         if (!this.existingDM(ids)) {
-            debugger 
             const names = users.map(user => (
                 user.username
             ))
@@ -38,7 +37,6 @@ class NewDMForm extends React.Component {
             newState.name = name;
             newState.description = `Direct message between ${users.length} people`     
             this.props.createDM(newState).then(({ channel }) => {
-                debugger 
                 this.props.hideDM();
                 this.props.history.push(`/messages/${channel.id}`);
                 this.props.handleCreate(channel);
