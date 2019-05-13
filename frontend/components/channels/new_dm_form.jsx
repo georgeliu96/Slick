@@ -38,6 +38,7 @@ class NewDMForm extends React.Component {
             newState.name = name;
             newState.description = `Direct message between ${users.length} people`     
             this.props.createDM(newState).then(({ channel }) => {
+                debugger 
                 this.props.hideDM();
                 this.props.history.push(`/messages/${channel.id}`);
                 this.props.handleCreate(channel);
@@ -51,11 +52,12 @@ class NewDMForm extends React.Component {
     }
 
     existingDM(ids) {
-        this.props.channels.forEach(channel => {
+        let existing = true;
+        for (let i = 0; i < this.props.channels.length; i++) {
+            const channel = this.props.channels[i]
             if(channel.direct_message) {
                 const channel_ids = channel.user_ids.sort((a,b) => a - b);
                 if (ids.length === channel_ids.length) {
-                    let existing = true;
                     for(let i = 0; i < ids.length; i++) {
                         if(ids[i] !== channel_ids[i]) {
                             existing = false;
@@ -63,20 +65,19 @@ class NewDMForm extends React.Component {
                     }
                     if (existing) {
                         this.props.hideDM();
-                        this.props.history.push(`messages/${channel.id}`);
+                        this.props.history.push(`${channel.id}`);
                         this.props.handleCreate(channel);
                         this.setState({
                             users: [],
                             name: "",
                             description: ""
                         });
-                        debugger 
-                        return true;
+                        break;
                     }
                 }
             }
-        })
-        return false;
+        }
+        return existing;
     }
 
     render() {
