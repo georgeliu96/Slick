@@ -10,6 +10,7 @@ class Sidebar extends React.Component {
         super(props);
         this.state = {
             currentChannel: this.props.currentChannel,
+            currentChannels: this.props.channels,
             hidden: true,
             hiddenDM: true,
             hiddenLogout: true,
@@ -122,9 +123,22 @@ class Sidebar extends React.Component {
         return count;
     }
 
+    setChannels(id) {
+        const channels = this.state.currentChannels;
+        for(let i = 0; i < channels.length; i++) {
+            if(channels[i].id === id) {
+                channels.splice(i, 1);
+                break;
+            }
+        }
+        this.setState({
+            currentChannels: channels
+        })
+    }
+
     render() {
         const keytype = (navigator.appVersion.indexOf("Mac")!=-1) ? "⌘" : "Ctrl";
-        const channels = this.props.channels.map((channel, index) => {
+        const channels = this.state.currentChannels.map((channel, index) => {
             if (!channel.direct_message) {
                 return   <Link to={`/messages/${channel.id}`} key={channel.id} className={`channel-Link`} onClick={() => this.handleChannel(index)}>
                 <li className={`channel ${(this.state.currentChannel.id === channel.id) ? "currentChannel" : ""} ${channel.id}`} tabIndex={channel.id}>
@@ -138,7 +152,7 @@ class Sidebar extends React.Component {
                 </Link>
             }
         })
-        const direct_messages = this.props.channels.map((channel, index) => {
+        const direct_messages = this.state.currentChannels.map((channel, index) => {
             if (this.props.currentUser) {
                 if(channel.direct_message && channel.user_ids.includes(this.props.currentUser.id)) {
                     const names = channel.name.split(", ")
@@ -152,10 +166,11 @@ class Sidebar extends React.Component {
                                     {(this.countChannels(this.state.channels, channel.id) < 10) ? (this.countChannels(this.state.channels, channel.id)) : "9+"}
                                 </b>
                                 ) : (
-                                    <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id).then(() => {
+                                    <i className="far fa-times-circle" onClick={() => {
+                                        this.setChannels(channel.id);
                                         this.props.history.push(`/messages/${this.props.channels[0].id}`)
                                         this.setState({currentChannel: this.props.channels[0]})
-                                    })}></i>
+                                    }}></i>
                                 ) }
                                 
                         </li>
