@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 const msp = state => ({
     users: Object.values(state.entities.users),
-    currentUser: state.entities.users[state.session.id]
+    currentUser: state.entities.users[state.session.id],
+    channels: Object.values(state.entities.channels),
 });
 
 const mdp = dispatch => ({
