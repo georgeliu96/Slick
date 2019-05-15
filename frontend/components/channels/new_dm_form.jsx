@@ -28,7 +28,7 @@ class NewDMForm extends React.Component {
         users.push(this.props.currentUser)
         const ids = users.map(user => user.id);
         ids.sort((a,b) => a - b);
-        if (!this.existingDM(ids)) {
+        // if (!this.existingDM(ids)) {
             const names = users.map(user => (
                 user.username
             ))
@@ -46,37 +46,37 @@ class NewDMForm extends React.Component {
                 name: "",
                 description: ""
             })
-        }
+        // }
     }
 
-    existingDM(ids) {
-        let existing = true;
-        for (let i = 0; i < this.props.channels.length; i++) {
-            const channel = this.props.channels[i]
-            if(channel.direct_message) {
-                const channel_ids = channel.user_ids.sort((a,b) => a - b);
-                if (ids.length === channel_ids.length) {
-                    for(let i = 0; i < ids.length; i++) {
-                        if(ids[i] !== channel_ids[i]) {
-                            existing = false;
-                        }
-                    }
-                    if (existing) {
-                        this.props.hideDM();
-                        this.props.history.push(`${channel.id}`);
-                        this.props.handleCreate(channel);
-                        this.setState({
-                            users: [],
-                            name: "",
-                            description: ""
-                        });
-                        break;
-                    }
-                }
-            }
-        }
-        return existing;
-    }
+    // existingDM(ids) {
+    //     let existing = true;
+    //     for (let i = 0; i < this.props.channels.length; i++) {
+    //         const channel = this.props.channels[i]
+    //         if(channel.direct_message) {
+    //             const channel_ids = channel.user_ids.sort((a,b) => a - b);
+    //             if (ids.length === channel_ids.length) {
+    //                 for(let i = 0; i < ids.length; i++) {
+    //                     if(ids[i] !== channel_ids[i]) {
+    //                         existing = false;
+    //                     }
+    //                 }
+    //                 if (existing) {
+    //                     this.props.hideDM();
+    //                     this.props.history.push(`${channel.id}`);
+    //                     this.props.handleCreate(channel);
+    //                     this.setState({
+    //                         users: [],
+    //                         name: "",
+    //                         description: ""
+    //                     });
+    //                     break;
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return existing;
+    // }
 
     render() {
         const users = (this.props.users) ? (this.props.users.map(user => (

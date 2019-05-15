@@ -123,18 +123,18 @@ class Sidebar extends React.Component {
         return count;
     }
 
-    setChannels(id) {
-        const channels = this.state.currentChannels;
-        for(let i = 0; i < channels.length; i++) {
-            if(channels[i].id === id) {
-                channels.splice(i, 1);
-                break;
-            }
-        }
-        this.setState({
-            currentChannels: channels
-        })
-    }
+    // setChannels(id) {
+    //     const channels = this.state.currentChannels;
+    //     for(let i = 0; i < channels.length; i++) {
+    //         if(channels[i].id === id) {
+    //             channels.splice(i, 1);
+    //             break;
+    //         }
+    //     }
+    //     this.setState({
+    //         currentChannels: channels
+    //     })
+    // }
 
     render() {
         const keytype = (navigator.appVersion.indexOf("Mac")!=-1) ? "⌘" : "Ctrl";
@@ -166,11 +166,11 @@ class Sidebar extends React.Component {
                                     {(this.countChannels(this.state.channels, channel.id) < 10) ? (this.countChannels(this.state.channels, channel.id)) : "9+"}
                                 </b>
                                 ) : (
-                                    <i className="far fa-times-circle" onClick={() => {
+                                    <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id).then(() => {
                                         this.setChannels(channel.id);
                                         this.props.history.push(`/messages/${this.props.channels[0].id}`)
                                         this.setState({currentChannel: this.props.channels[0]})
-                                    }}></i>
+                                    })}></i>
                                 ) }
                                 
                         </li>
