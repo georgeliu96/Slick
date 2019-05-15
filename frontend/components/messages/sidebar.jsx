@@ -138,7 +138,7 @@ class Sidebar extends React.Component {
 
     render() {
         const keytype = (navigator.appVersion.indexOf("Mac")!=-1) ? "⌘" : "Ctrl";
-        const channels = this.state.currentChannels.map((channel, index) => {
+        const channels = this.props.channels.map((channel, index) => {
             if (!channel.direct_message) {
                 return   <Link to={`/messages/${channel.id}`} key={channel.id} className={`channel-Link`} onClick={() => this.handleChannel(index)}>
                 <li className={`channel ${(this.state.currentChannel.id === channel.id) ? "currentChannel" : ""} ${channel.id}`} tabIndex={channel.id}>
@@ -152,7 +152,7 @@ class Sidebar extends React.Component {
                 </Link>
             }
         })
-        const direct_messages = this.state.currentChannels.map((channel, index) => {
+        const direct_messages = this.props.channels.map((channel, index) => {
             if (this.props.currentUser) {
                 if(channel.direct_message && channel.user_ids.includes(this.props.currentUser.id)) {
                     const names = channel.name.split(", ")
@@ -167,7 +167,7 @@ class Sidebar extends React.Component {
                                 </b>
                                 ) : (
                                     <i className="far fa-times-circle" onClick={() => this.props.deleteChannel(channel.id).then(() => {
-                                        this.setChannels(channel.id);
+                                        // this.setChannels(channel.id);
                                         this.props.history.push(`/messages/${this.props.channels[0].id}`)
                                         this.setState({currentChannel: this.props.channels[0]})
                                     })}></i>
