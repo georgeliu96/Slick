@@ -116,6 +116,5 @@ handleSubmit(e) {
 - [X] Users who are not logged in will be redirected to sign up page when attempting to access messages
 - [X] Creating a new DM will first check to see if an existing DM with the same users exists, and redirect if it does
 - [X] Add notifications for when a message is sent to a channel you are subscribed to
-- [ ] Creating a channel adds all users in the workspace to that channel 
 - [ ] Incorporate AWS and allow users to upload their own profile pictures 
 - [ ] Editting and deleting messages and channels
