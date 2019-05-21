@@ -6,7 +6,7 @@ Technologies Used: React-Redux, Action-cables and subscriptions, Websockets
 
 ## Slick
 
-Live Site: [Slick](https://slack-clone-aa.herokuapp.com "Slick")
+Live Site: [Slick](http://slick.george-liu.com "Slick")
 
 ![alt text][slackdemo]
 
