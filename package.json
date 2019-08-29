@@ -30,9 +30,10 @@
     "npm": "6.4.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "cypress open",
     "postinstall": "webpack",
-    "start": "webpack -w --mode=development"
+    "start": "webpack -w --mode=development",
+    "db:seed": "bundle exec rails db:seed"
   },
   "repository": {
     "type": "git",
@@ -44,5 +45,8 @@
   "bugs": {
     "url": "https://github.com/saphknight/SlackClone-Name-Pending/issues"
   },
-  "homepage": "https://github.com/saphknight/SlackClone-Name-Pending#readme"
+  "homepage": "https://github.com/saphknight/SlackClone-Name-Pending#readme",
+  "devDependencies": {
+    "cypress": "^3.4.1"
+  }
 }

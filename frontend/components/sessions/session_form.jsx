@@ -87,11 +87,11 @@ class SessionForm extends React.Component {
                         <div className="inner-form-container">
                             <p className="session-form-desc">Enter your <b>username</b>, <b>password</b>, and <b>email</b>.</p>
                             <form className="session-form">
-                                <input type="text" onChange={this.handleInput("username")} value={this.state.username} className="session-form-input form-input-username" placeholder="username"/>
+                                <input type="text" name="username" onChange={this.handleInput("username")} value={this.state.username} className="session-form-input form-input-username" placeholder="username"/>
                                 <br></br>
-                                <input type="password" onChange={this.handleInput("password")} value={this.state.password} className="session-form-input form-input-password" placeholder="password"/>
+                                <input type="password" name="password" onChange={this.handleInput("password")} value={this.state.password} className="session-form-input form-input-password" placeholder="password"/>
                                 <br></br>
-                                <input type="text" onChange={this.handleInput("email")} value={this.state.email} className="session-form-input form-input-email" placeholder="you@example.com"/>
+                                <input type="text" name="email" onChange={this.handleInput("email")} value={this.state.email} className="session-form-input form-input-email" placeholder="you@example.com"/>
                                 <br></br>
                                 <input type="submit" className="session-submit-button" value={this.props.formType} onClick={this.handleSubmit}/>
                                 <input type="submit" className="session-submit-button" value="Demo User" onClick={this.demoUser} />
