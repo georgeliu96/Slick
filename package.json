@@ -37,15 +37,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saphknight/SlackClone-Name-Pending.git"
+    "url": "git+https://github.com/georgeliu96/SlackClone-Name-Pending.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/saphknight/SlackClone-Name-Pending/issues"
+    "url": "https://github.com/georgeliu96/SlackClone-Name-Pending/issues"
   },
-  "homepage": "https://github.com/saphknight/SlackClone-Name-Pending#readme",
+  "homepage": "https://github.com/georgeliu96/SlackClone-Name-Pending#readme",
   "devDependencies": {
     "cypress": "^3.4.1"
   }

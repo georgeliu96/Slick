@@ -3,7 +3,7 @@ import React from 'react';
 const MessageFooter = () => {
     return (
     <div className="message-footer">
-        <a href="https://github.com/saphknight" className="message-link message-footer-link splash-container" target="_blank">
+        <a href="https://github.com/georgeliu96" className="message-link message-footer-link splash-container" target="_blank">
             <img className="splash-icon" src="https://image.flaticon.com/icons/svg/25/25231.svg"/>
             <div className="splash-overlay">
                 <b className="github-label message-footer-label">Github</b>
@@ -17,7 +17,7 @@ const MessageFooter = () => {
             </div>
 
         </a>   
-        <a href="https://saphknight.github.io/" className="site-link message-footer-link splash-container" target="_blank">
+        <a href="https://george-liu.com/" className="site-link message-footer-link splash-container" target="_blank">
             <img src={window.personal} className="splash-icon"/>
             <div className="splash-overlay">            
                 <b className="site-label message-footer-label">Portfolio</b>

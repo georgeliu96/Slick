@@ -10,7 +10,7 @@ Live Site: [Slick](http://slick.george-liu.com "Slick")
 
 ![alt text][slackdemo]
 
-[slackdemo]: https://github.com/saphknight/Slick/blob/master/storage/slack-demo.PNG "Slack Demo"
+[slackdemo]: https://github.com/georgeliu96/Slick/blob/master/storage/slack-demo.PNG "Slack Demo"
 
 Slick is a imitation of the popular messaging webapp, Slack. 
 
@@ -64,7 +64,7 @@ Before creating channels, the app functioned as one giant workspace. Message loa
 
 ![alt text][missinguser]
 
-[missinguser]: https://github.com/saphknight/Slick/blob/master/storage/missing-user.png "Missing User Info"
+[missinguser]: https://github.com/georgeliu96/Slick/blob/master/storage/missing-user.png "Missing User Info"
 
 
 This was resolved by checking the current state and fetching the last message's owner-credentials if that user could not be found. 
