@@ -5,7 +5,7 @@ const SplashFooter = () => {
     <div className="splash-footer">
         <div></div>
         <div></div>
-        <a href="https://github.com/saphknight" className="github-link footer-link splash-container" target="_blank">
+        <a href="https://github.com/georgeliu96" className="github-link footer-link splash-container" target="_blank">
             <img className="splash-icon" src="https://image.flaticon.com/icons/svg/25/25231.svg"/>
             <div className="splash-overlay">
                 <b className="github-label footer-label">Github</b>
@@ -19,7 +19,7 @@ const SplashFooter = () => {
             </div>
         </a>
 
-        <a href="https://saphknight.github.io/" className="site-link footer-link splash-container" target="_blank">
+        <a href="https://george-liu.com/" className="site-link footer-link splash-container" target="_blank">
             <img src={window.personal} className="splash-icon"/>
             <div className="splash-overlay">
                 <b className="footer-label">Portfolio</b>
